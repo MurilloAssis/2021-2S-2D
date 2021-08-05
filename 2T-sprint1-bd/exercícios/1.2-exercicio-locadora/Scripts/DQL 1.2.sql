@@ -1,0 +1,20 @@
+USE LOCADORA
+GO
+
+Select * FROM EMPRESA;
+GO
+
+Select * FROM CLIENTE;
+GO
+
+Select * FROM MARCA;
+GO
+
+Select * FROM MODELO;
+GO
+
+Select * FROM VEICULO;
+GO
+
+SELECT * FROM ALUGUEL;
+GO

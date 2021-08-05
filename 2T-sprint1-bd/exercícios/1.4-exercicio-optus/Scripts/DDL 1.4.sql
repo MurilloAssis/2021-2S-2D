@@ -5,15 +5,12 @@ USE USUARIO;
 GO
 
 
-CREATE TABLE TIPO(
-	tipoUsuario BIT PRIMARY KEY NOT NULL
-);
-GO
-
 CREATE TABLE USUARIO(
 	nomeUsuario VARCHAR(20) NOT NULL,
 	emailUsuario VARCHAR(35) NOT NULL UNIQUE,
 	senhaUsuario VARCHAR (35) NOT NULL,
-	tipoUsuario BIT FOREIGN KEY REFERENCES TIPO(tipoUsuario)
+	tipoUsuario char(5) NOT NULL
 );
 GO
+
+
