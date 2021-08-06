@@ -38,8 +38,8 @@ GO
 
 DELETE FROM VEICULO
 
-INSERT INTO ALUGUEL (idVeiculo, idCliente, idEmpresa, DataDevol)
-VALUES (3, 1, 1, '05-08-2021');
+INSERT INTO ALUGUEL (idVeiculo, idCliente, idEmpresa, DataAluguel, DataDevol)
+VALUES (2, 2, 2, '04-08-2021', '05-08-2021');
 GO
 
 SELECT * FROM ALUGUEL

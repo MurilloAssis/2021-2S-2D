@@ -2,7 +2,7 @@ USE OPTUS;
 GO
 
 INSERT INTO USUARIO(nomeUsuario, emailUsuario, senhaUsuario, tipoUsuario)
-VALUES ('ALBERTO', 'alberto@email.com', '1234', 'Admin');
+VALUES ('Julio', 'julin@email.com', '1234', 'Comum');
 
 INSERT INTO ARTISTA (nomeArtista)
 VALUES ('CantorLoco'), ('Roberto Barros');

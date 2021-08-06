@@ -18,3 +18,19 @@ GO
 
 SELECT * FROM ALUGUEL;
 GO
+
+SELECT DataDevol, DataAluguel, nomeCliente, nomeModelo
+FROM ALUGUEL
+INNER JOIN CLIENTE
+ON ALUGUEL.idCliente = CLIENTE.idCliente
+INNER JOIN MODELO
+ON ALUGUEL.idVeiculo = MODELO.idModelo;
+GO
+
+SELECT nomeCliente, DataDevol, DataAluguel, nomeModelo 
+FROM ALUGUEL
+INNER JOIN CLIENTE
+ON CLIENTE.idCliente = ALUGUEL.idAluguel
+INNER JOIN MODELO
+ON ALUGUEL.idVeiculo = MODELO.idModelo
+WHERE CLIENTE.nomeCliente = 'João'
