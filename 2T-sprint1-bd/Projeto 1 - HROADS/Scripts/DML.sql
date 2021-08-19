@@ -15,7 +15,7 @@ VALUES ('Arcanista', null);
 GO
 
 INSERT INTO personagem(nomePersonagem, idClasse, capacidadeMaxVida, capacidadeMaxMana, dataAtualizacao, dataCriacao)
-VALUES ('BitBug', 4, 70, 100, '10-08-2021', '17-03-2016');
+VALUES ('Lucas', 3, 40, 80, '10-08-2021', '17-03-2016');
 GO
 
 UPDATE personagem

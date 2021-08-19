@@ -20,7 +20,13 @@ SELECT nomeClasse Classe
 From classe;
 GO
 
-SELECT * FROM habilidade;
+SELECT TOP 3 nomePersonagem, nomeClasse, capacidadeMaxVida, capacidadeMaxMana,
+	ROW_NUMBER() OVER(ORDER BY capacidadeMaxVida) as 'ROW_NUMBER',
+	RANK() OVER(ORDER BY capacidadeMaxVida) as 'RANK',
+	DENSE_RANK() OVER(ORDER BY capacidadeMaxVida) as 'DENSE_RANK'
+FROM personagem
+INNER JOIN classe
+ON personagem.idClasse = classe.idClasse;
 GO
 
 SELECT

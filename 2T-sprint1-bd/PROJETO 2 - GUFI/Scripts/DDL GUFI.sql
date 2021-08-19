@@ -1,0 +1,65 @@
+CREATE DATABASE GUFI_TARDE;
+GO
+
+USE GUFI_TARDE;
+GO
+
+CREATE TABLE tipoUsuario (
+	idTipoUsuario SMALLINT PRIMARY KEY IDENTITY,
+	tituloTipoUsuario VARCHAR(10) UNIQUE NOT NULL
+);
+GO
+
+CREATE TABLE tipoEvento(
+	idTipoEvento INT PRIMARY KEY IDENTITY,
+	tituloTipoEvento VARCHAR(100) UNIQUE NOT NULL
+);
+GO
+
+CREATE TABLE situacao(
+	idSituacao TINYINT PRIMARY KEY IDENTITY,
+	descricao VARCHAR(20) UNIQUE NOT NULL
+);
+GO
+
+CREATE TABLE instituicao(
+	idInstituicao SMALLINT PRIMARY KEY IDENTITY,
+	nomeFantasia VARCHAR(100) NOT NULL,
+	CNPJ CHAR(18) UNIQUE NOT NULL,
+	Endereco VARCHAR(150) NOT NULL
+);
+GO
+
+
+
+CREATE TABLE usuario(
+	idUsuario INT PRIMARY KEY IDENTITY,
+	idTipoUsuario SMALLINT FOREIGN KEY REFERENCES tipoUsuario(idTipoUsuario),
+	nomeUsuario VARCHAR(50) NOT NULL,
+	email VARCHAR(256) UNIQUE NOT NULL,
+	senha VARCHAR(10) NOT NULL CHECK( LEN(senha) >= 8)
+
+);
+GO
+
+
+
+CREATE TABLE evento(
+	idEvento INT PRIMARY KEY IDENTITY,
+	idTipoEvento INT FOREIGN KEY REFERENCES tipoEvento(idTipoEvento),
+	idInstituicao SMALLINT FOREIGN KEY REFERENCES instituicao(idInstituicao),
+	nomeEvento VARCHAR(50) NOT NULL,
+	descricao VARCHAR (300) NOT NULL,
+	dataEvento DATETIME NOT NULL,
+	acessoLivre BIT DEFAULT (1) 
+);
+GO 
+
+CREATE TABLE presenca(
+
+	idPresenca INT PRIMARY KEY IDENTITY,
+	idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario),
+	idEvento INT FOREIGN KEY REFERENCES evento(idEvento),
+	idSituacao TINYINT FOREIGN KEY REFERENCES situacao(idSituacao)
+);
+GO
