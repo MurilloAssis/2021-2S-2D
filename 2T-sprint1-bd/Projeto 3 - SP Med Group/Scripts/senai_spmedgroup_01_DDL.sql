@@ -64,7 +64,7 @@ CREATE TABLE consulta(
 	idSituacao SMALLINT FOREIGN KEY REFERENCES situacao(idSituacao),
 	idPaciente SMALLINT FOREIGN KEY REFERENCES paciente(idPaciente),
 	dataConsulta DATE NOT NULL,
-	descricaoConsulta VARCHAR(50) NOT NULL
+	descricaoConsulta VARCHAR(100) NOT NULL
 );
 GO
 

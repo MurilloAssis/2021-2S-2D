@@ -1,7 +1,8 @@
 USE SP_MEDICAL_GROUP;
 GO
 
-SELECT * FROM consulta
+SELECT * FROM usuario
+SELECT * FROM paciente
 
 INSERT INTO tipoUsuario
 VALUES ('Admin'), ('Comum'), ('Médico')
@@ -33,12 +34,13 @@ VALUES (4, '13-10-1983', '43522543-5', '94839859000','11 3456-7654', 'Rua Estado
 (10, '05/03/2018', '54566266-8', '13771913039', NULL, 'R Sao Antonio, 232 - Vila Universal, Barueri - SP, 06407-140');
 
 INSERT INTO medico(idUsuario, idEspecializacao, idInstituicao, CRM)
-VALUES (1, 2, 1, '54356-SP'), (2, 16, 1, '53452-SP'), (3, 17, 1, '65463-SP');
+VALUES (1, 2, 1, '54356-SP'), (2, 17, 1, '53452-SP'), (3, 16, 1, '65463-SP');
 GO
+
 
 INSERT INTO consulta(idMedico, idSituacao, idPaciente, dataConsulta, descricaoConsulta)
 VALUES (3, 1, 7, '20/01/2020  15:00:00', 'A paciente está completamente saudável!'), (2, 3, 2, '06/01/2020  10:00:00', 'Consulta cancelada!'), (2, 1, 3, '07/02/2020  11:00:00', 'O paciente está saudável!'), (2, 1, 2, '06/02/2018  10:00:00', 'O paciente teve uma melhora, porém, necessitará retorno!'),
-(1, 3, 8, '07/02/2019  11:00:45', 'A consulta foi cancelada!'), (3, 2, 7, '08/03/2020  15:00:00', 'A consulta foi agendada!'), (1, 2, 8, '09/03/2020  11:00:45', 'A consulta foi agendada!');
+(1, 3, 4, '07/02/2019  11:00:45', 'A consulta foi cancelada!'), (3, 2, 4, '08/03/2020  15:00:00', 'A consulta foi agendada!'), (1, 2, 4, '09/03/2020  11:00:45', 'A consulta foi agendada!');
 GO
 
 
