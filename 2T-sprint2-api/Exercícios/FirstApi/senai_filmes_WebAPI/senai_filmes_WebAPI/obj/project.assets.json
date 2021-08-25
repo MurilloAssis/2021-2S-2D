@@ -8,19 +8,19 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Murillo\\.nuget\\packages\\": {}
+    "C:\\Users\\fic\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\FirstApi\\senai_filmes_WebAPI\\senai_filmes_WebAPI\\senai_filmes_WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\fic\\Desktop\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\FirstApi\\senai_filmes_WebAPI\\senai_filmes_WebAPI\\senai_filmes_WebAPI.csproj",
       "projectName": "senai_filmes_WebAPI",
-      "projectPath": "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\FirstApi\\senai_filmes_WebAPI\\senai_filmes_WebAPI\\senai_filmes_WebAPI.csproj",
-      "packagesPath": "C:\\Users\\Murillo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\FirstApi\\senai_filmes_WebAPI\\senai_filmes_WebAPI\\obj\\",
+      "projectPath": "C:\\Users\\fic\\Desktop\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\FirstApi\\senai_filmes_WebAPI\\senai_filmes_WebAPI\\senai_filmes_WebAPI.csproj",
+      "packagesPath": "C:\\Users\\fic\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\fic\\Desktop\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\FirstApi\\senai_filmes_WebAPI\\senai_filmes_WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Murillo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\fic\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -63,7 +63,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
       }
     }
   }
