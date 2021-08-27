@@ -33,5 +33,12 @@ namespace senai_filme_webAPI.Controllers
 
             return Ok(listaFilme);
         }
+
+        [HttpPost]
+        public IActionResult Post(FilmeDomain novoFilme)
+        {
+            _filmeRepository.Cadastrar(novoFilme);
+            return StatusCode(201);
+        }
     }
 }

@@ -29,7 +29,18 @@ namespace senai_filme_webAPI.Repositories
 
         public void Cadastrar(FilmeDomain novoFilme)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryInsert = "Insert Into filme(idGenero, tituloFilme) " +
+                    "values ('" + novoFilme.idGenero +"','" + novoFilme.tituloFilme + "')";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                {
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Deletar(int idFilme)
