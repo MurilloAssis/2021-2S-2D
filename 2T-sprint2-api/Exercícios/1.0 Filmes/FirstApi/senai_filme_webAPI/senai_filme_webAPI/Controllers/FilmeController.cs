@@ -40,5 +40,22 @@ namespace senai_filme_webAPI.Controllers
             _filmeRepository.Cadastrar(novoFilme);
             return StatusCode(201);
         }
+
+        [HttpDelete("{idFilme}")]
+        public IActionResult Delete(int idFilme)
+        {
+            _filmeRepository.Deletar(idFilme);
+            return StatusCode(204);
+        }
+
+        [HttpGet("{idFilme}")]
+        public IActionResult SearchById(int idFilme)
+        {
+            FilmeDomain filme = _filmeRepository.BuscarPorId(idFilme);
+            return Ok(filme);
+        }
+
+
+
     }
 }

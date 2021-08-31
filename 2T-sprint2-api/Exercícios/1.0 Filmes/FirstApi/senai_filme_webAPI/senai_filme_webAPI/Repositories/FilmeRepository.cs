@@ -24,7 +24,35 @@ namespace senai_filme_webAPI.Repositories
 
         public FilmeDomain BuscarPorId(int idFilme)
         {
-            throw new NotImplementedException();
+            FilmeDomain buscarFilme = new FilmeDomain();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string querySearchById = "SELECT idFilme, tituloFilme, F.idGenero, nomeGenero FROM FILME F INNER JOIN GENERO G ON F.idGenero = G.idGenero WHERE idFilme = @idFilme";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(querySearchById, con))
+                {
+                    cmd.Parameters.AddWithValue("@idFilme", idFilme);
+                    rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        buscarFilme.idFilme = Convert.ToInt32(rdr[0]);
+                        buscarFilme.tituloFilme = rdr[1].ToString();
+                        buscarFilme.idGenero = Convert.ToInt32(rdr[2]);
+                        buscarFilme.genero = new GeneroDomain()
+                        {
+                            idGenero = Convert.ToInt32(rdr[2]),
+                            nomeGenero = rdr[3].ToString()
+                        };
+                    }
+
+                    return (buscarFilme);
+                }
+            }
         }
 
         public void Cadastrar(FilmeDomain novoFilme)
@@ -45,7 +73,18 @@ namespace senai_filme_webAPI.Repositories
 
         public void Deletar(int idFilme)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryDeleteById = "DELETE FROM FILME WHERE idFilme = @idFilme";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryDeleteById, con))
+                {
+                    cmd.Parameters.AddWithValue("@idFilme", idFilme);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public List<FilmeDomain> ListarTodos()
