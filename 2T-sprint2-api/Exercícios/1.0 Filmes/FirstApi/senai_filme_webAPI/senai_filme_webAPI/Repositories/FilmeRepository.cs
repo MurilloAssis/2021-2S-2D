@@ -19,7 +19,10 @@ namespace senai_filme_webAPI.Repositories
 
         public void AtualizarIdUrl(int idFilme, FilmeDomain filmeAtualizado)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+
+            }
         }
 
         public FilmeDomain BuscarPorId(int idFilme)
