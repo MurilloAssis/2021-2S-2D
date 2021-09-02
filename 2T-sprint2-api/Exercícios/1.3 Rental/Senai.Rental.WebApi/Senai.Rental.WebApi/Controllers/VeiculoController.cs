@@ -43,5 +43,19 @@ namespace Senai.Rental.WebApi.Controllers
             return StatusCode(204);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult SearchByID(int id)
+        {
+            VeiculoDomain veiculo = _veiculoRepository.BuscarPorId(id);
+            return Ok(veiculo);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, VeiculoDomain veiculoAtualizado)
+        {
+            _veiculoRepository.Atualizar(id, veiculoAtualizado);
+            return StatusCode(200);
+        }
+
     }
 }

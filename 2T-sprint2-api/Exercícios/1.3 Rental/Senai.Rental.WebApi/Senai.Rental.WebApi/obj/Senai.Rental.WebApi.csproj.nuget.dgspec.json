@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fic\\Desktop\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\1.3 Rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj": {}
+    "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\1.3 Rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fic\\Desktop\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\1.3 Rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj": {
+    "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\1.3 Rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fic\\Desktop\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\1.3 Rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\1.3 Rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj",
         "projectName": "Senai.Rental.WebApi",
-        "projectPath": "C:\\Users\\fic\\Desktop\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\1.3 Rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj",
-        "packagesPath": "C:\\Users\\fic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fic\\Desktop\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\1.3 Rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\obj\\",
+        "projectPath": "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\1.3 Rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\Senai.Rental.WebApi.csproj",
+        "packagesPath": "C:\\Users\\Murillo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Exercícios\\1.3 Rental\\Senai.Rental.WebApi\\Senai.Rental.WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\fic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Murillo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

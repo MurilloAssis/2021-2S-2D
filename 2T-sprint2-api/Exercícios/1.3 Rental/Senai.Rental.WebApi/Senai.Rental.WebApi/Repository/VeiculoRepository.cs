@@ -10,15 +10,74 @@ namespace Senai.Rental.WebApi.Repository
 {
     public class VeiculoRepository : IVeiculoRepositorycs
     {
-        string stringConexao = @"Data Source=NOTE0113D2\SQLEXPRESS; initial catalog=T_RENTAL; user Id=sa; pwd=Senai@132";
-        public void Atualizar(int idGenero, VeiculoDomain VeiculoAtualizado)
+        string stringConexao = @"Data Source=DESKTOP-VN6G9JR\SQLEXPRESS; initial catalog=T_RENTAL; user Id=sa; pwd=#Murillo1#";
+        public void Atualizar(int idVeiculo, VeiculoDomain VeiculoAtualizado)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryUpdate = "UPDATE VEICULO SET placa = @placa, idModelo = @idModelo, idEmpresa = @idEmpresa WHERE idVeiculo = @idVeiculo";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
+                {
+                    cmd.Parameters.AddWithValue("@placa", VeiculoAtualizado.placa);
+                    cmd.Parameters.AddWithValue("@idModelo", VeiculoAtualizado.idModelo);
+                    cmd.Parameters.AddWithValue("@idEmpresa", VeiculoAtualizado.idEmpresa);
+                    cmd.Parameters.AddWithValue("@idVeiculo", idVeiculo);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
-        public VeiculoDomain BuscarPorId(int idGenero)
+        public VeiculoDomain BuscarPorId(int idVeiculo)
         {
-            throw new NotImplementedException();
+            VeiculoDomain veiculoBuscar = new VeiculoDomain();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string querySearchById = "SELECT idVeiculo, V.idEmpresa, V.idModelo, nomeMarca, nomeModelo, nomeEmpresa, placa, M.idMarca FROM VEICULO V INNER JOIN EMPRESA E ON V.idEmpresa = E.idEmpresa INNER JOIN MODELO M ON V.idModelo = M.idModelo INNER JOIN MARCA MA ON M.idMarca = MA.idMarca WHERE idVeiculo = @idVeiculo";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(querySearchById, con))
+                {
+                    cmd.Parameters.AddWithValue("@idVeiculo", idVeiculo);
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        veiculoBuscar.idVeiculo = Convert.ToInt32(rdr[0]);
+                        veiculoBuscar.idEmpresa = Convert.ToInt32(rdr[1]);
+                        veiculoBuscar.idModelo = Convert.ToInt32(rdr[2]);
+                        veiculoBuscar.placa = rdr[6].ToString();
+                        veiculoBuscar.modeloDomain = new ModeloDomain()
+                        {
+                            idModelo = Convert.ToInt32(rdr[2]),
+                            idMarca = Convert.ToInt32(rdr[7]),
+                            nomeModelo = rdr[4].ToString(),
+                            marcaDomain = new MarcaDomain()
+                            {
+                                idMarca = Convert.ToInt32(rdr[7]),
+                                nomeMarca = rdr[3].ToString()
+                            }
+                        };
+                        veiculoBuscar.empresaDomain = new EmpresaDomain()
+                        {
+                            idEmpresa = Convert.ToInt32(rdr[1]),
+                            nomeEmpresa = rdr[5].ToString()
+                        };
+                        return (veiculoBuscar);
+                    }
+                    else
+                    {
+                        return null;
+                    }
+
+                }
+            }
         }
 
         public void Cadastrar(VeiculoDomain novoVeiculo)
@@ -61,7 +120,7 @@ namespace Senai.Rental.WebApi.Repository
 
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string querySelect = "SELECT idVeiculo, ISNULL(idEmpresa,0), ISNULL(idModelo, 0), placa FROM Veiculo";
+                string querySelect = "SELECT idVeiculo, V.idEmpresa, nomeEmpresa, V.idModelo, M.idMarca, nomeMarca, nomeModelo, placa FROM VEICULO V INNER JOIN EMPRESA E ON V.idEmpresa = E.idEmpresa INNER JOIN MODELO M ON V.idModelo = M.idModelo INNER JOIN MARCA MA ON M.idMarca = MA.idMarca";
 
                 con.Open();
 
@@ -77,8 +136,24 @@ namespace Senai.Rental.WebApi.Repository
                         {
                             idVeiculo = Convert.ToInt32(rdr[0]),
                             idEmpresa = Convert.ToInt32(rdr[1]),
-                            idModelo = Convert.ToInt32(rdr[2]),
-                            placa = rdr[3].ToString()
+                            idModelo = Convert.ToInt32(rdr[3]),
+                            placa = rdr[7].ToString(),
+                            empresaDomain = new EmpresaDomain()
+                            {
+                                idEmpresa = Convert.ToInt32(rdr[1]),
+                                nomeEmpresa = rdr[2].ToString()
+                            },
+                            modeloDomain = new ModeloDomain()
+                            {
+                                idModelo = Convert.ToInt32(rdr[3]),
+                                idMarca = Convert.ToInt32(rdr[4]),
+                                nomeModelo = rdr[6].ToString(),
+                                marcaDomain = new MarcaDomain()
+                                {
+                                    idMarca = Convert.ToInt32(rdr[4]),
+                                    nomeMarca = rdr[5].ToString()
+                                }
+                            }
                         };
                         listaVeiculo.Add(Veiculo);
                     }

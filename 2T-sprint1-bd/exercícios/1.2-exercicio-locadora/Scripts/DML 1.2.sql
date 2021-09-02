@@ -8,8 +8,8 @@ GO
 Select * FROM EMPRESA;
 GO
 
-INSERT INTO CLIENTE (nomeCliente)
-VALUES ('Saulo'), ('João');
+INSERT INTO CLIENTE (nomeCliente, sobrenomeCliente)
+VALUES ('Saulo', 'Senai'), ('João', 'Senai');
 GO
 
 Select * FROM CLIENTE;
@@ -36,7 +36,7 @@ GO
 Select * FROM VEICULO;
 GO
 
-DELETE FROM VEICULO
+
 
 INSERT INTO ALUGUEL (idVeiculo, idCliente, idEmpresa, DataAluguel, DataDevol)
 VALUES (2, 2, 2, '04-08-2021', '05-08-2021');

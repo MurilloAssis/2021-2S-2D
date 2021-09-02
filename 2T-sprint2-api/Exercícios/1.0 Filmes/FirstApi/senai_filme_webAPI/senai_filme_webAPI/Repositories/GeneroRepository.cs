@@ -22,12 +22,42 @@ namespace senai_filme_webAPI.Repositories
 
         public void AtualizarIdCorpo(GeneroDomain generoAtualizado)
         {
-            
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryUpdateIdBody = "UPDATE GENERO SET nomeGenero = @novoNome WHERE idGenero = @idGenero";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdateIdBody, con))
+                {
+                    cmd.Parameters.AddWithValue("@novoNome", generoAtualizado.nomeGenero);
+                    cmd.Parameters.AddWithValue("@idGenero", generoAtualizado.idGenero);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void AtualizarIdUrl(int idGenero, GeneroDomain generoAtualizado)
         {
-            throw new NotImplementedException();
+            if (generoAtualizado.nomeGenero != null)
+            {
+
+                using (SqlConnection con = new SqlConnection(stringConexao))
+                {
+                    string queryUpdateIdURL = "UPDATE GENERO SET nomeGenero = @novoNome WHERE idGenero = @idGenero";
+
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(queryUpdateIdURL, con))
+                    {
+                        cmd.Parameters.AddWithValue("@novoNome", generoAtualizado.nomeGenero);
+                        cmd.Parameters.AddWithValue("@idGenero", idGenero);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
         }
 
         public GeneroDomain BuscarPorId(int idGenero)
@@ -47,12 +77,17 @@ namespace senai_filme_webAPI.Repositories
 
                     rdr = cmd.ExecuteReader();
 
-                    while (rdr.Read())
+                    if (rdr.Read())
                     {
                         generoBuscar.idGenero = Convert.ToInt32(rdr[0]);
                         generoBuscar.nomeGenero = rdr[1].ToString();
+                        return generoBuscar;
                     }
-                    return generoBuscar;
+                    else
+                    {
+                        return null;
+                    }
+                    
                 }
                     
             }

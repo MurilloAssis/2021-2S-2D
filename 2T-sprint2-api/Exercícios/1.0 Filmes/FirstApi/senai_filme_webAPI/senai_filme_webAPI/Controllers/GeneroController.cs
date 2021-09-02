@@ -62,7 +62,63 @@ namespace senai_filme_webAPI.Controllers
         public IActionResult SearchById(int idGenero)
         {
             GeneroDomain genero = _generoRepository.BuscarPorId(idGenero);
+            if (genero == null)
+            {
+                return NotFound("Gênero não encontado");
+            }
             return Ok(genero);
+        }
+
+        [HttpPut("Atualizar/{idGenero}")]
+        public IActionResult UpdateByIdURL(int idGenero, GeneroDomain novoGenero)
+        {
+            if (_generoRepository.BuscarPorId(idGenero) == null)
+            {
+                return NotFound(
+                    new
+                    {
+                        mensagem = "Gênero não encontrado!",
+                        erro = true
+                    }
+                    );
+            }
+            try
+            {
+
+                _generoRepository.AtualizarIdUrl(idGenero, novoGenero);
+                return StatusCode(204);
+            }
+            catch (Exception erro )
+            {
+                return BadRequest(erro);
+            }
+ 
+           
+        }
+
+        [HttpPut("Atualizar")]
+        public IActionResult UpdateByIdBody(GeneroDomain novoGenero)
+        {
+            if (_generoRepository.BuscarPorId(novoGenero.idGenero) == null)
+            {
+                return NotFound(
+                    new
+                    {
+                        mensagem = "Gênero não encontrado!",
+                        erro = true
+                    }
+                    );
+            }
+            try
+            {
+
+                _generoRepository.AtualizarIdCorpo(novoGenero);
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
         }
 
     }

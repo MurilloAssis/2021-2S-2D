@@ -52,10 +52,26 @@ namespace senai_filme_webAPI.Controllers
         public IActionResult SearchById(int idFilme)
         {
             FilmeDomain filme = _filmeRepository.BuscarPorId(idFilme);
+            if (filme == null)
+            {
+                return NotFound("Filme não encontrado");
+            }
             return Ok(filme);
         }
 
+        [HttpPatch("Atualizar/{idFilme}")]
+        public IActionResult UpdateByIdURL(int idFilme, FilmeDomain novoFilme)
+        {
+            _filmeRepository.AtualizarIdUrl(idFilme, novoFilme);
+            return StatusCode(200);
+        }
 
+        [HttpPatch("Atualizar")]
+        public IActionResult UpdateByIdBody(FilmeDomain novoFilme)
+        {
+            _filmeRepository.AtualizarIdCorpo(novoFilme);
+            return StatusCode(200);
+        }
 
     }
 }
