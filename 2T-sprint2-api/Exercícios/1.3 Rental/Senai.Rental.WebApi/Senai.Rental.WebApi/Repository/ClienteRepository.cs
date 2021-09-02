@@ -10,18 +10,19 @@ namespace Senai.Rental.WebApi.Repository
 {
     public class ClienteRepository : IClienteRepository
     {
-        string stringConexao = @"Data Source=NOTE0113D2\SQLEXPRESS; initial catalog=T_RENTAL; user Id=sa; pwd=Senai@132";
+        string stringConexao = @"Data Source=NOTE0113C4\SQLEXPRESS; initial catalog=T_RENTAL; user Id=sa; pwd=Senai@132";
         public void Atualizar(int idGenero, ClienteDomain ClienteAtualizado)
         {
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string queryUpdate = "UPDATE CLIENTE SET nomeCliente = @nomeCliente WHERE idCliente = @idCliente";
+                string queryUpdate = "UPDATE CLIENTE SET nomeCliente = @nomeCliente, sobrenomeCliente = @sobrenomeCliente WHERE idCliente = @idCliente";
 
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
                 {
                     cmd.Parameters.AddWithValue("@nomeCliente", ClienteAtualizado.nomeCliente);
+                    cmd.Parameters.AddWithValue("@sobrenomeCliente", ClienteAtualizado.sobrenomeCliente);
                     cmd.Parameters.AddWithValue("@idCliente", idGenero);
 
                     cmd.ExecuteNonQuery();
@@ -34,7 +35,7 @@ namespace Senai.Rental.WebApi.Repository
             ClienteDomain clienteBuscar = new ClienteDomain();
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string querySearchById = "SELECT idCliente, nomeCliente FROM CLIENTE WHERE idCliente = @idCliente";
+                string querySearchById = "SELECT idCliente, nomeCliente, sobrenomeCliente FROM CLIENTE WHERE idCliente = @idCliente";
 
                 con.Open();
 
@@ -46,12 +47,14 @@ namespace Senai.Rental.WebApi.Repository
 
                     rdr = cmd.ExecuteReader();
 
-                    while(rdr.Read())
+                    if(rdr.Read())
                     {
                         clienteBuscar.idCliente = Convert.ToInt32(rdr[0]);
                         clienteBuscar.nomeCliente = rdr[1].ToString();
+                        clienteBuscar.sobrenomeCliente = rdr[2].ToString();
                     }
-                    return clienteBuscar;
+                        return clienteBuscar;
+                    
                 }
             }
         }
@@ -60,13 +63,14 @@ namespace Senai.Rental.WebApi.Repository
         {
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string queryInsert = "INSERT INTO CLIENTE (nomeCliente) VALUES (@nomeCliente)";
+                string queryInsert = "INSERT INTO CLIENTE (nomeCliente,sobrenomeCliente) VALUES (@nomeCliente, @sobrenomeCliente)";
 
                 con.Open();
 
                 using (SqlCommand cmd = new SqlCommand(queryInsert, con))
                 {
                     cmd.Parameters.AddWithValue("@nomeCliente", novoCliente.nomeCliente);
+                    cmd.Parameters.AddWithValue("@sobrenomeCliente", novoCliente.sobrenomeCliente);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -92,7 +96,7 @@ namespace Senai.Rental.WebApi.Repository
 
             using (SqlConnection con = new SqlConnection(stringConexao))
             {
-                string querySelect = "SELECT idCliente, nomeCliente FROM CLIENTE";
+                string querySelect = "SELECT idCliente, nomeCliente, sobrenomeCliente FROM CLIENTE";
 
                 con.Open();
 
@@ -107,17 +111,19 @@ namespace Senai.Rental.WebApi.Repository
                         ClienteDomain CLIENTE = new ClienteDomain
                         {
                             idCliente = Convert.ToInt32(rdr[0]),
-                            nomeCliente = rdr[1].ToString()
+                            nomeCliente = rdr[1].ToString(),
+                            sobrenomeCliente = rdr[2].ToString()
                         };
                         listaCliente.Add(CLIENTE);
                     }
-                    
+                        return listaCliente;
+                           
                 }
 
                
             }
 
-            return listaCliente;
+            
         }
     }
 }

@@ -9,5 +9,8 @@ namespace Senai.Rental.WebApi.Domains
     {
         public int idCliente { get; set; }
         public string nomeCliente { get; set; }
+
+        public string  sobrenomeCliente { get; set; }
+
     }
 }
