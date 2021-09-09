@@ -148,3 +148,17 @@ C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\
 C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\obj\Debug\net5.0\senai_filme_webAPI.RazorTargetAssemblyInfo.cache
 C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\obj\Debug\net5.0\senai_filme_webAPI.csproj.CopyComplete
 C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\obj\Debug\net5.0\senai_filme_webAPI.genruntimeconfig.cache
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\bin\Debug\net5.0\senai_filme_webAPI.xml
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\obj\Debug\net5.0\senai_filme_webAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Exercícios\1.0 Filmes\FirstApi\senai_filme_webAPI\senai_filme_webAPI\obj\Debug\net5.0\senai_filme_webAPI.xml

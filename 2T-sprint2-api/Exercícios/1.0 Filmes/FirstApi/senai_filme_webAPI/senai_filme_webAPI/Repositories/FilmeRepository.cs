@@ -10,7 +10,7 @@ namespace senai_filme_webAPI.Repositories
 {
     public class FilmeRepository : IFilmeRepository
     {
-        private string stringConexao = @"Data Source=DESKTOP-VN6G9JR\SQLEXPRESS; initial catalog=CATALOGO; user Id=sa; pwd=#Murillo1#";
+        private string stringConexao = @"Data Source=DESKTOP-CV21P6P\SQLEXPRESS; initial catalog=CATALOGO; user Id=sa; pwd=#Murillo1#";
 
         public void AtualizarIdCorpo(FilmeDomain filmeAtualizado)
         {

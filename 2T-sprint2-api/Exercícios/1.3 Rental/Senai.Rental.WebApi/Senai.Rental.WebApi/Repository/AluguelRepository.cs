@@ -11,7 +11,7 @@ namespace Senai.Rental.WebApi.Repository
 
     public class AluguelRepository : IAluguelRepository
     {
-        string stringConexao = @"Data Source=NOTE0113C4\SQLEXPRESS; initial catalog=T_RENTAL; user Id=sa; pwd=Senai@132";
+        string stringConexao = @"Data Source=DESKTOP-CV21P6P\SQLEXPRESS; initial catalog=T_RENTAL; user Id=sa; pwd=#Murillo1#";
 
         public void Atualizar(int idAluguel, AluguelDomain aluguelAtualizado)
         {

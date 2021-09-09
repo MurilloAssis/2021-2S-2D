@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>senai_filme_webAPI</name>
+    </assembly>
+    <members>
+        <member name="T:senai_filme_webAPI.Domains.GeneroDomain">
+            <summary>
+            Classe representa a entidade (tabela) GENERO
+            </summary>
+        </member>
+        <member name="T:senai_filme_webAPI.Interfaces.IFilmeRepository">
+            <summary>
+            Interface responsável pelo repositório FilmeRepository
+            </summary>
+        </member>
+        <member name="M:senai_filme_webAPI.Interfaces.IFilmeRepository.ListarTodos">
+            <summary>
+            Listar todos os Filmes
+            </summary>
+            <returns>Uma lista de filmes</returns>
+        </member>
+        <member name="M:senai_filme_webAPI.Interfaces.IFilmeRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Buscar um filme atráves por um id
+            </summary>
+            <param name="idFilme">id do filme será buscado</param>
+            <returns>Um filme buscado</returns>
+        </member>
+        <member name="M:senai_filme_webAPI.Interfaces.IFilmeRepository.Cadastrar(senai_filme_webAPI.Domains.FilmeDomain)">
+            <summary>
+            Cadastrar um novo filme
+            </summary>
+            <param name="novoFilme">Objeto novoFilme com os novos dados</param>
+        </member>
+        <member name="M:senai_filme_webAPI.Interfaces.IFilmeRepository.AtualizarIdCorpo(senai_filme_webAPI.Domains.FilmeDomain)">
+            <summary>
+            Atualizar um filme existente
+            </summary>
+            <param name="filmeAtualizado">Objeto filmeAtualizado com os novos dados atualizados</param>
+        </member>
+        <member name="M:senai_filme_webAPI.Interfaces.IFilmeRepository.AtualizarIdUrl(System.Int32,senai_filme_webAPI.Domains.FilmeDomain)">
+            <summary>
+            Atualizar um filme existente
+            </summary>
+            <param name="idFilme">id do filme que será atualizado</param>
+            <param name="filmeAtualizado">Objeto filmeAtualizado com os novos dados atualizados</param>
+        </member>
+        <member name="M:senai_filme_webAPI.Interfaces.IFilmeRepository.Deletar(System.Int32)">
+            <summary>
+            Deletar um filme existente
+            </summary>
+            <param name="idFilme">id do filme que sera deletado</param>
+        </member>
+        <member name="T:senai_filme_webAPI.Interfaces.IGeneroRepository">
+            <summary>
+            Interface responsável pelo repositório GeneroRepository
+            </summary>
+        </member>
+        <member name="M:senai_filme_webAPI.Interfaces.IGeneroRepository.ListarTodos">
+            <summary>
+            Listar todos os generos
+            </summary>
+            <returns>Uma lista de gênero</returns>
+        </member>
+        <member name="M:senai_filme_webAPI.Interfaces.IGeneroRepository.BuscarPorId(System.Int32)">
+            <summary>
+            Busca um gênero através do seu id
+            </summary>
+            <param name="idGenero">id do gênero que será buscado</param>
+            <returns>Um gênero buscado  </returns>
+        </member>
+        <member name="M:senai_filme_webAPI.Interfaces.IGeneroRepository.Cadastrar(senai_filme_webAPI.Domains.GeneroDomain)">
+            <summary>
+            Cadastra um novo gênero
+            </summary>
+            <param name="novoGenero">Objeto novoGenero com os novos dados</param>
+        </member>
+        <member name="M:senai_filme_webAPI.Interfaces.IGeneroRepository.AtualizarIdCorpo(senai_filme_webAPI.Domains.GeneroDomain)">
+            <summary>
+            Atualiza um gênero existente
+            </summary>
+            <param name="generoAtualizado">Objeto generoAtualizado com os novos dados atualizados</param>
+        </member>
+        <member name="M:senai_filme_webAPI.Interfaces.IGeneroRepository.AtualizarIdUrl(System.Int32,senai_filme_webAPI.Domains.GeneroDomain)">
+            <summary>
+            Atualiza um gênero existente
+            </summary>
+            <param name="idGenero">id do gênero que será atualizado</param>
+            <param name="generoAtualizado">Objeto generoAtualizado com os novos dados atualizados</param>
+        </member>
+        <member name="M:senai_filme_webAPI.Interfaces.IGeneroRepository.Deletar(System.Int32)">
+            <summary>
+            Deleta um gênero existente
+            </summary>
+            <param name="idGenero">id do gênero que será deletado</param>
+        </member>
+        <member name="T:senai_filme_webAPI.Repositories.GeneroRepository">
+            <summary>
+            Classe reponsavel pelo repositorio dos GENEROS
+            </summary>
+        </member>
+        <member name="F:senai_filme_webAPI.Repositories.GeneroRepository.stringConexao">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:senai_filme_webAPI.Repositories.GeneroRepository.Cadastrar(senai_filme_webAPI.Domains.GeneroDomain)">
+            <summary>
+            
+            </summary>
+            <param name="novoGenero">Objeto nomeGenero com as informações a serem cadastradas</param>
+        </member>
+        <member name="M:senai_filme_webAPI.Repositories.GeneroRepository.ListarTodos">
+            <summary>
+            Listar todos os generos
+            </summary>
+            <returns>Uma Lista de Generos</returns>
+        </member>
+    </members>
+</doc>
