@@ -47,7 +47,7 @@ namespace senai.inlock.webApi.Repositories
                     rdr = cmd.ExecuteReader();
 
 
-                    while (rdr.Read())
+                    if (rdr.Read())
                     {
                         User = new UsuarioDomain()
                         {
@@ -60,9 +60,9 @@ namespace senai.inlock.webApi.Repositories
                                 titulo = rdr[3].ToString()
                             }
                         };
-                        
+                        return User;
                     }
-                    if (User == null)
+                    else
                     {
 
                         return null;
@@ -70,7 +70,7 @@ namespace senai.inlock.webApi.Repositories
 
 
 
-                    return User;
+                    
 
                 }
             }

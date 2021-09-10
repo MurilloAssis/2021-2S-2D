@@ -36,32 +36,122 @@ namespace senai.inlock.webApi.Controllers
         [HttpGet("{id}")]
         public IActionResult SerachById(int id)
         {
-            JogoDomain Jogo = _jogoRepository.BuscarPorId(id);
-            return Ok(Jogo);
+            if (id <= 0)
+            {
+                return NotFound(
+                    new
+                    {
+                        mensagem = "Id Invalido!",
+                        erro = true
+
+                    }) ;
+            }
+            try
+            {
+                JogoDomain Jogo = _jogoRepository.BuscarPorId(id);
+                if (Jogo == null)
+                {
+                    return NotFound(
+                        new
+                        {
+                            mensagem = "Jogo não encontrado"
+                        });
+                }
+
+                return Ok(Jogo);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+            
         }
 
         [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Post(JogoDomain novoJogo)
         {
-            _jogoRepository.Cadastrar(novoJogo);
-            return StatusCode(201);
+            if (novoJogo.nomeJogo == null || novoJogo.descricao == null || novoJogo.valor <= 0 || novoJogo.idEstudio <= 0)
+            {
+                return NotFound(
+                    new
+                    {
+                        mensagem = "Dados incompletos",
+                        erro = true
+                    }) ;
+            }
+            try
+            {
+                _jogoRepository.Cadastrar(novoJogo);
+                return StatusCode(201);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+            
         }
 
         [Authorize(Roles = "1")]
         [HttpPut("{id}")]
         public IActionResult Put(int id, JogoDomain attJogo)
         {
-            _jogoRepository.AtualizarId(id, attJogo);
-            return StatusCode(200);
+            if (id <= 0)
+            {
+                return NotFound(
+                        new
+                        {
+                            mensagem = "Id inválido",
+                            erro = true
+                        }
+                    );
+            }
+            try
+            {
+                _jogoRepository.AtualizarId(id, attJogo);
+
+                return StatusCode(200);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+                
+            
         }
+
+
+
 
         [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _jogoRepository.Deletar(id);
-            return StatusCode(204);
+            if (id <= 0)
+            {
+                return NotFound(
+                        new
+                        {
+                            mensagem = "Id inválido",
+                            erro = true
+                        }
+                    );
+            }
+
+            try
+            {
+                _jogoRepository.Deletar(id);
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+            
         }
     }
 }

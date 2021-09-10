@@ -34,29 +34,117 @@ namespace senai.inlock.webApi.Controllers
         [HttpGet("{id}")]
         public IActionResult SearchById(int id)
         {
-            EstudioDomain estudioBuscado = _estudioRepository.BuscarPorId(id);
-            return Ok(estudioBuscado);
+            if (id <= 0)
+            {
+                return NotFound(
+                    new
+                    {
+                        mensagem = "Id Invalido!",
+                        erro = true
+
+                    });
+            }
+            try
+            {
+                EstudioDomain estudioBuscado = _estudioRepository.BuscarPorId(id);
+                if (estudioBuscado == null)
+                {
+                    return NotFound(
+                        new
+                        {
+                            mensagem = "Estudio não encontrado"
+                        });
+                }
+
+                return Ok(estudioBuscado);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
         }
+
+
 
         [HttpPost]
         public IActionResult Post(EstudioDomain novoEstudio)
         {
-            _estudioRepository.Cadastrar(novoEstudio);
-            return StatusCode(201);
+            if (novoEstudio.nomeEstudio == null)
+            {
+                return NotFound(
+                   new
+                   {
+                       mensagem = "Dados incompletos",
+                       erro = true
+                   });
+            }
+            try
+            {
+                _estudioRepository.Cadastrar(novoEstudio);
+                return StatusCode(201);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+            
+            
         }
+
+
 
         [HttpPut("{id}")]
         public IActionResult Put(int id, EstudioDomain attEstudio)
         {
-            _estudioRepository.AtualizarId(id, attEstudio);
-            return StatusCode(200);
+            if (id <= 0)
+            {
+                return NotFound(
+                        new
+                        {
+                            mensagem = "Id inválido",
+                            erro = true
+                        }
+                    );
+            }
+            try
+            {
+                _estudioRepository.AtualizarId(id, attEstudio);
+                return StatusCode(200);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+            
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _estudioRepository.Deletar(id);
-            return StatusCode(204);
+            if (id <= 0)
+            {
+                return NotFound(
+                        new
+                        {
+                            mensagem = "Id inválido",
+                            erro = true
+                        }
+                    );
+            }
+            try
+            {
+                _estudioRepository.Deletar(id);
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+            
         }
     }
 }

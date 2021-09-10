@@ -17,7 +17,7 @@ namespace senai.inlock.webApi.Controllers
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    
+
     public class UsuarioController : ControllerBase
     {
         private IUsuarioRepository _usuarioRepository { get; set; }
@@ -38,32 +38,117 @@ namespace senai.inlock.webApi.Controllers
         [HttpPost]
         public IActionResult Post(UsuarioDomain novoUsuario)
         {
-            _usuarioRepository.Cadastrar(novoUsuario);
-            return StatusCode(201);
+            if (novoUsuario.email == null || novoUsuario.senha == null || novoUsuario.idTipoUsuario <= 0)
+            {
+                return NotFound(
+                    new
+                    {
+                        mensagem = "Dados incompletos",
+                        erro = true
+                    });
+            }
+            try
+            {
+                _usuarioRepository.Cadastrar(novoUsuario);
+                return StatusCode(201);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+
         }
 
         [Authorize(Roles = "1")]
         [HttpGet("{id}")]
         public IActionResult SerachById(int id)
         {
-            UsuarioDomain user = _usuarioRepository.BuscarPorId(id);
-            return Ok(user);
+            if (id <= 0)
+            {
+                return NotFound(
+                    new
+                    {
+                        mensagem = "Id Invalido!",
+                        erro = true
+
+                    });
+            }
+
+            try
+            {
+                UsuarioDomain User = _usuarioRepository.BuscarPorId(id);
+                if (User == null)
+                {
+                    return NotFound(
+                        new
+                        {
+                            mensagem = "Usuário não encontrado"
+                        }
+                        );
+                }
+
+                return Ok(User);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
         }
 
         [Authorize(Roles = "1")]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            _usuarioRepository.Deletar(id);
-            return StatusCode(204);
+            if (id <= 0)
+            {
+                return NotFound(
+                        new
+                        {
+                            mensagem = "Id inválido",
+                            erro = true
+                        }
+                    );
+            }
+            try
+            {
+                _usuarioRepository.Deletar(id);
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+
         }
 
         [Authorize(Roles = "1")]
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, UsuarioDomain attUser)
+        [HttpPatch("{id}")]
+        public IActionResult Patch(int id, UsuarioDomain attUser)
         {
-            _usuarioRepository.AtualizarId(id, attUser);
-            return StatusCode(200);
+            if (id <= 0)
+            {
+                return NotFound(
+                        new
+                        {
+                            mensagem = "Id inválido",
+                            erro = true
+                        }
+                    );
+            }
+            try
+            {
+                _usuarioRepository.AtualizarId(id, attUser);
+                return StatusCode(200);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
+
         }
 
         [HttpPost("Login")]
@@ -93,7 +178,7 @@ namespace senai.inlock.webApi.Controllers
             {
                 Token = new JwtSecurityTokenHandler().WriteToken(Token)
             }); ;
-                
+
         }
     }
 }
