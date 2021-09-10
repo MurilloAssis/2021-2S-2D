@@ -12,7 +12,7 @@ namespace senai.inlock.webApi.Domains
         public string descricao { get; set; }
         public DateTime dataLancamento { get; set; }
         public float valor { get; set; }
-        public EstudioDomain estudio { get; set; }
         public int idEstudio { get; set; }
+        public EstudioDomain estudio { get; set; }
     }
 }

@@ -53,11 +53,11 @@ namespace senai.inlock.webApi.Repositories
                         {
                             idUsuario = Convert.ToInt32(rdr[0]),
                             email = rdr[1].ToString(),
-                            idTipoUsuario = Convert.ToInt32(rdr[3]),
+                            idTipoUsuario = Convert.ToInt32(rdr[2]),
                             tipoUsuario = new TipoUsuarioDomain()
                             {
-                                idTipoUsuario = Convert.ToInt32(rdr[3]),
-                                titulo = rdr[4].ToString()
+                                idTipoUsuario = Convert.ToInt32(rdr[2]),
+                                titulo = rdr[3].ToString()
                             }
                         };
                         
@@ -155,6 +155,48 @@ namespace senai.inlock.webApi.Repositories
 
                     return listarUser;
 
+                }
+            }
+        }
+
+        public UsuarioDomain Login(string email, string senha)
+        {
+            UsuarioDomain usuarioBuscado = new UsuarioDomain();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryLogin = "SELECT * FROM USUARIO INNER JOIN TIPOUSUARIO ON USUARIO.idTipoUsuario = TIPOUSUARIO.idTipoUsuario WHERE email = @email and senha = @senha";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(queryLogin, con))
+                {
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@senha", senha);
+
+                    rdr = cmd.ExecuteReader();
+
+                    if (rdr.Read())
+                    {
+                        usuarioBuscado = new UsuarioDomain()
+                        {
+                            idUsuario = Convert.ToInt32(rdr[0]),
+                            email = rdr[1].ToString(),
+                            senha = rdr[2].ToString(),
+                            idTipoUsuario = Convert.ToInt32(rdr[3]),
+                            tipoUsuario = new TipoUsuarioDomain()
+                            {
+                                idTipoUsuario = Convert.ToInt32(rdr[3]),
+                                titulo = rdr[5].ToString()
+                            }
+                        };
+                        return usuarioBuscado;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
             }
         }

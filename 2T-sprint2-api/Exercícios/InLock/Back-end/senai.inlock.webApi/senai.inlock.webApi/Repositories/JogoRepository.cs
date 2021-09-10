@@ -11,9 +11,26 @@ namespace senai.inlock.webApi.Repositories
     public class JogoRepository : IJogoRepository
     {
         string stringConexao = @"Data Source=DESKTOP-CV21P6P\SQLEXPRESS; initial catalog=inlock_games_tarde; user Id=sa; pwd=#Murillo1#";
-        public void AtualizarId(int idJogo)
+        public void AtualizarId(int idJogo, JogoDomain attJogo)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryUpdate = "UPDATE JOGO SET nomeJogo = @nomeJogo, descricao = @descricao, dataLancamento = @dataLancamento, valor = @valor, idEstudio = @idEstudio WHERE idJogo = @idJogo";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
+                {
+                    cmd.Parameters.AddWithValue("@nomeJogo", attJogo.nomeJogo);
+                    cmd.Parameters.AddWithValue("@descricao", attJogo.descricao);
+                    cmd.Parameters.AddWithValue("@dataLancamento", attJogo.dataLancamento);
+                    cmd.Parameters.AddWithValue("@valor", attJogo.valor);
+                    cmd.Parameters.AddWithValue("@idEstudio", attJogo.idEstudio);
+                    cmd.Parameters.AddWithValue("@idJogo", idJogo);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public JogoDomain BuscarPorId(int idJogo)
@@ -63,12 +80,40 @@ namespace senai.inlock.webApi.Repositories
 
         public void Cadastrar(JogoDomain novoJogo)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryInsert = "INSERT INTO JOGO(nomeJogo, descricao, dataLancamento, valor, idEstudio) VALUES (@nomeJogo, @descricao, @dataLancamento, @valor, @idEstudio)";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                {
+                    cmd.Parameters.AddWithValue("@nomeJogo", novoJogo.nomeJogo);
+                    cmd.Parameters.AddWithValue("@descricao", novoJogo.descricao);
+                    cmd.Parameters.AddWithValue("@dataLancamento", novoJogo.dataLancamento);
+                    cmd.Parameters.AddWithValue("@valor", novoJogo.valor);
+                    cmd.Parameters.AddWithValue("@idEstudio", novoJogo.idEstudio);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Deletar(int idJogo)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryDelete = "DELETE FROM JOGO WHERE idJogo = @idJogo";
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryDelete, con))
+                {
+                    cmd.Parameters.AddWithValue("@idJogo", idJogo);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public List<JogoDomain> ListarTodos()

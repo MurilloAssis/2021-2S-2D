@@ -34,7 +34,7 @@ namespace senai.inlock.webApi.Interfaces
         /// Atualiza um jogo existente
         /// </summary>
         /// <param name="idJogo">Id do jogo a ser atualizado</param>
-        void AtualizarId(int idJogo);
+        void AtualizarId(int idJogo, JogoDomain attJogo);
 
         /// <summary>
         /// Deleta um jogo existente
