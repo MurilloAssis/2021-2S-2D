@@ -40,6 +40,12 @@
             </summary>
             <param name="idEstudio">Id do estúdio a ser deletado</param>
         </member>
+        <member name="M:senai.inlock.webApi.Interfaces.IEstudioRepository.ListarEmpresasJogos">
+            <summary>
+            Lista os estudios e suas empresas
+            </summary>
+            <returns>Retorna a lista de empresas e seus jogos</returns>
+        </member>
         <member name="T:senai.inlock.webApi.Interfaces.IJogoRepository">
             <summary>
             Interface responsável pelo repositório JogoRepository

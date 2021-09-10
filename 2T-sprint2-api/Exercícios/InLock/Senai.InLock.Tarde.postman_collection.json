@@ -439,7 +439,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNjMxMjk3NjYzLCJpc3MiOiJpbmxvY2suV2ViQXBpIiwiYXVkIjoiaW5sb2NrLldlYkFwaSJ9.43NaFIUjdiENU6Q0s3A3rennDwf6SCeIrb9tUaWOe7U",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNjMxMzAxNjQ1LCJpc3MiOiJpbmxvY2suV2ViQXBpIiwiYXVkIjoiaW5sb2NrLldlYkFwaSJ9.YAZk_twweGbhqMZg1VhXKHnlIsAES7Czzl-YNJs29kQ",
 									"type": "string"
 								}
 							]
@@ -712,6 +712,37 @@
 								"api",
 								"Estudio",
 								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Estudio.ListarEstudiosEJogos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsImp0aSI6IjEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiIxIiwiZXhwIjoxNjMxMzAxNjQ1LCJpc3MiOiJpbmxvY2suV2ViQXBpIiwiYXVkIjoiaW5sb2NrLldlYkFwaSJ9.YAZk_twweGbhqMZg1VhXKHnlIsAES7Czzl-YNJs29kQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:5001/api/Estudio/ListarJogosEmpresas",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "5001",
+							"path": [
+								"api",
+								"Estudio",
+								"ListarJogosEmpresas"
 							]
 						}
 					},

@@ -133,5 +133,47 @@ namespace senai.inlock.webApi.Repositories
 
             return listaEstudio;
         }
+
+        public List<EstudioDomain> ListarEmpresasJogos()
+        {
+            List<EstudioDomain> listaEstudio = new List<EstudioDomain>();
+
+
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string querySelect = "SELECT ESTUDIO.idEstudio, nomeEstudio, ISNULL(descricao, 'Não Cadastrado') descricao, ISNULL(nomeJogo, 'Não cadastrado') nomeJogo, ISNULL(idJogo, 0) idJogo, ISNULL(valor, 0) valor, ISNULL(dataLancamento, '') dataLancamento FROM ESTUDIO LEFT JOIN JOGO ON JOGO.idEstudio = ESTUDIO.idEstudio";
+
+                con.Open();
+
+                SqlDataReader rdr;
+
+                using (SqlCommand cmd = new SqlCommand(querySelect, con))
+                {
+                    rdr = cmd.ExecuteReader();
+
+                    while (rdr.Read())
+                    {
+                        EstudioDomain ESTUDIO = new EstudioDomain()
+                        {
+                            idEstudio = Convert.ToInt32(rdr["idEstudio"]),
+                            nomeEstudio = rdr["nomeEstudio"].ToString(),
+                            jogo = new JogoDomain()
+                            {
+                                idEstudio = Convert.ToInt32(rdr["idEstudio"]),
+                                idJogo = Convert.ToInt32(rdr["idJogo"]),
+                                nomeJogo = rdr["nomeJogo"].ToString(),
+                                descricao = rdr["descricao"].ToString(),
+                                valor = Convert.ToSingle(rdr["valor"]),
+                                dataLancamento = Convert.ToDateTime(rdr["dataLancamento"])
+                            }
+                        };
+
+                        listaEstudio.Add(ESTUDIO);
+                    }
+                }
+            }
+
+            return listaEstudio;
+        }
     }
 }

@@ -41,5 +41,11 @@ namespace senai.inlock.webApi.Interfaces
         /// </summary>
         /// <param name="idEstudio">Id do estúdio a ser deletado</param>
         void Deletar(int idEstudio);
+
+        /// <summary>
+        /// Lista os estudios e suas empresas
+        /// </summary>
+        /// <returns>Retorna a lista de empresas e seus jogos</returns>
+        List<EstudioDomain> ListarEmpresasJogos();
     }
 }

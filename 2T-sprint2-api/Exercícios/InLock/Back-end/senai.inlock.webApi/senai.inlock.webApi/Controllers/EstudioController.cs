@@ -146,5 +146,12 @@ namespace senai.inlock.webApi.Controllers
             }
             
         }
+
+        [HttpGet("ListarJogosEmpresas")]
+        public IActionResult GetEmpresa()
+        {
+            List<EstudioDomain> listaEstudio = _estudioRepository.ListarEmpresasJogos();
+            return Ok(listaEstudio);
+        }
     }
 }

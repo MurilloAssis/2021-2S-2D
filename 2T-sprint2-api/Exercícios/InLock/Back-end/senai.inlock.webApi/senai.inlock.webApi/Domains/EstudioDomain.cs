@@ -9,5 +9,6 @@ namespace senai.inlock.webApi.Domains
     {
         public int idEstudio { get; set; }
         public string nomeEstudio { get; set; }
+        public JogoDomain jogo { get; set; }
     }
 }
