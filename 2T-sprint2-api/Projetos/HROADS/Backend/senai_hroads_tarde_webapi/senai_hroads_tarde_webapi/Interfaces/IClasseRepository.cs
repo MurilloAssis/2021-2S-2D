@@ -10,12 +10,12 @@ namespace senai_hroads_tarde_webapi.Interfaces
     {
         List<Classe> ListarTodos();
 
-        void Cadastrar();
+        void Cadastrar(Classe novaClasse);
 
-        void Deletar();
+        void Deletar(byte id);
 
-        Classe BuscarPorId();
+        Classe BuscarPorId(byte id);
 
-        void Atualizar();
+        void Atualizar(byte id, Classe classeAtualizada);
     }
 }
