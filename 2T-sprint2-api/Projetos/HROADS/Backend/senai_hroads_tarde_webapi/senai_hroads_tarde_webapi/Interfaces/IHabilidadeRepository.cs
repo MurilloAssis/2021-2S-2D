@@ -10,12 +10,12 @@ namespace senai_hroads_tarde_webapi.Interfaces
     {
         List<Habilidade> ListarTodos();
 
-        void Cadastrar();
+        void Cadastrar(Habilidade novaHabilidade);
 
-        void Deletar();
+        void Deletar(byte id);
 
-        Habilidade BuscarPorId();
+        Habilidade BuscarPorId(byte id);
 
-        void Atualizar();
+        void Atualizar(byte id, Habilidade habilidadeAtualizada);
     }
 }

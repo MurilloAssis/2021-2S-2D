@@ -9278,6 +9278,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.6",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.9",
+      "Microsoft.IdentityModel.JsonWebTokens >= 6.12.2",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 5.0.2",
       "Newtonsoft.Json >= 13.0.1",
       "Swashbuckle.AspNetCore >= 6.2.1",
@@ -9345,6 +9346,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[5.0.9, )"
+          },
+          "Microsoft.IdentityModel.JsonWebTokens": {
+            "target": "Package",
+            "version": "[6.12.2, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
