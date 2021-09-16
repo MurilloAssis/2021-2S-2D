@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai_hroads_tarde_webapi.Domains;
 using senai_hroads_tarde_webapi.Interfaces;
@@ -22,6 +23,7 @@ namespace senai_hroads_tarde_webapi.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
+        [Authorize(Roles = "1")]
         [HttpGet]
         public IActionResult ListarTodos()
         {

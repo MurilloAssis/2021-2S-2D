@@ -24,6 +24,7 @@ namespace senai_hroads_tarde_webapi.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
+        
         [HttpPost]
         public IActionResult Login(Usuario Login)
         {
@@ -36,7 +37,7 @@ namespace senai_hroads_tarde_webapi.Controllers
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.IdUsuario.ToString()),
                     new Claim(ClaimTypes.Role, usuarioBuscado.IdTipoUsuario.ToString()),
-                    new Claim(ClaimTypes.Role, usuarioBuscado.IdTipoUsuarioNavigation.Titulo)
+                    
                     
                 };
 
@@ -48,7 +49,7 @@ namespace senai_hroads_tarde_webapi.Controllers
                         issuer: "HROADS.webApi",
                         audience: "HROADS.webApi",
                         claims: Claims,
-                        expires : DateTime.Now.AddMinutes(30),
+                        expires : DateTime.Now.AddMinutes(40),
                         signingCredentials : Creds
                     );
 
