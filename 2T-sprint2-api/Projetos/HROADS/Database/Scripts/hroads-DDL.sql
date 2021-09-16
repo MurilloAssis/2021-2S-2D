@@ -1,0 +1,49 @@
+/*
+1 - Criar o banco de dados chamado
+SENAI_HROADS_MANHA/SENAI_HROADS_TARDE (conforme o período);
+*/
+CREATE DATABASE HROADS;
+GO
+
+USE HROADS;
+GO
+
+/*
+2 - Criar as tabelas no banco de dados
+*/
+CREATE TABLE CLASSE(
+	idClasse TINYINT PRIMARY KEY IDENTITY,
+	nomeClasse VARCHAR(30)	
+);
+GO
+
+CREATE TABLE TIPOHABILIDADE(
+	idTipoHabilidade TINYINT PRIMARY KEY IDENTITY,
+	nomeTipoHabilidade VARCHAR(30)
+);
+GO
+
+CREATE TABLE HABILIDADE(
+	idHabilidade TINYINT PRIMARY KEY IDENTITY,
+	idTipoHabilidade TINYINT FOREIGN KEY REFERENCES TIPOHABILIDADE(idTipoHabilidade),
+	nomeHabilidade VARCHAR(40)
+);
+GO
+
+CREATE TABLE PERSONAGEM(
+	idPersonagem SMALLINT PRIMARY KEY IDENTITY,
+	idClasse TINYINT FOREIGN KEY REFERENCES CLASSE(idClasse),
+	nomePersonagem VARCHAR(50),
+	capacidadeMaxVida TINYINT,
+	capacidadeMaxMana TINYINT,
+	dataAtualizacao SMALLDATETIME,
+	dataCriacao SMALLDATETIME
+);
+GO
+
+CREATE TABLE CLASSEHABILIDADE(
+	idClasseHabilidade SMALLINT PRIMARY KEY IDENTITY,
+	idClasse TINYINT FOREIGN KEY REFERENCES CLASSE (idClasse),
+	idHabilidade TINYINT FOREIGN KEY REFERENCES HABILIDADE (idHabilidade)
+);
+GO
