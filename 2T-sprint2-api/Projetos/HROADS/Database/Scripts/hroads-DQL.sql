@@ -4,6 +4,8 @@ GO
 
 -- 6 - Selecionar todos os personagens
 
+
+
 SELECT * FROM PERSONAGEM
 GO
 

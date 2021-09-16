@@ -6,6 +6,12 @@ GO
 tipos de habilidades e personagens)
 */
 
+INSERT INTO TIPOUSUARIO(titulo)
+VALUES ('Jogador'),('Administrador')
+
+INSERT INTO USUARIO(email, senha, idTipoUsuario)
+VALUES ('jogador@email.com', 123, 1), ('admin@email.com', 123, 2)
+
 INSERT INTO CLASSE (nomeClasse)
 VALUES	('Bárbaro'),('Cruzado'),('Caçadora de Demônios'),
 		('Monge'),('Necromante'),('Feiticeiro'),('Arcanista')
