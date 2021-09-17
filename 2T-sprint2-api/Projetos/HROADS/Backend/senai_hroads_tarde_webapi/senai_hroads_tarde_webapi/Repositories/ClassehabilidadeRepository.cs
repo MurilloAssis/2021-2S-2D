@@ -11,7 +11,7 @@ namespace senai_hroads_tarde_webapi.Repositories
     public class ClassehabilidadeRepository : IClassehabilidadeRepository
     {
         InLockContext ctx = new InLockContext();
-        public void Atualizar(byte id, Classehabilidade classeHabilidadeAtualizada)
+        public void Atualizar(short id, Classehabilidade classeHabilidadeAtualizada)
         {
             Classehabilidade classeHabilidadeBuscada = ctx.Classehabilidades.Find(id);
 

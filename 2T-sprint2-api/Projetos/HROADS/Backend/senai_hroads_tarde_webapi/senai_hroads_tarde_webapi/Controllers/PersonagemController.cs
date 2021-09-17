@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai_hroads_tarde_webapi.Domains;
 using senai_hroads_tarde_webapi.Interfaces;
@@ -22,6 +23,7 @@ namespace senai_hroads_tarde_webapi.Controllers
             _personagemRepository = new PersonagemRepository();
         }
 
+        [Authorize(Roles = "1, 2")]
         [HttpGet]
         public IActionResult ListarTodos()
         {
@@ -38,6 +40,8 @@ namespace senai_hroads_tarde_webapi.Controllers
             }
             
         }
+
+        [Authorize(Roles = "1")]
         [HttpPost]
         public IActionResult Cadastrar(Personagem novoPerso)
         {

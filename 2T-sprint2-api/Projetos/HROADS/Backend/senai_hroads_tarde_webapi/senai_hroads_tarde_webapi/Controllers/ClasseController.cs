@@ -22,6 +22,7 @@ namespace senai_hroads_tarde_webapi.Controllers
             _classeRepository = new ClasseRepository();
         }
 
+        [HttpGet]
         public IActionResult ListarTodos()
         {
             List<Classe> lista = _classeRepository.ListarTodos();
@@ -29,24 +30,38 @@ namespace senai_hroads_tarde_webapi.Controllers
             return Ok(lista);
         }
 
+        [Authorize(Roles = "2")]
+        [HttpPost]
         public IActionResult Cadastrar(Classe novaClasse)
         {
             _classeRepository.Cadastrar(novaClasse);
             return StatusCode(201);
         }
 
+        [HttpGet("{id}")]
         public IActionResult BuscarPorId(byte id)
         {
             Classe classe = _classeRepository.BuscarPorId(id);
             return Ok(classe);
         }
 
+        [HttpDelete("{id}")]
         public IActionResult Deletar(byte id)
         {
-            _classeRepository.Deletar(id);
-            return StatusCode(204);
+
+            try
+            {
+                _classeRepository.Deletar(id);
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+
+                return BadRequest(erro);
+            }
         }
 
+        [HttpPut("{id}")]
         public IActionResult Atualizar(byte id, Classe classeAtualizada)
         {
             _classeRepository.Atualizar(id, classeAtualizada);

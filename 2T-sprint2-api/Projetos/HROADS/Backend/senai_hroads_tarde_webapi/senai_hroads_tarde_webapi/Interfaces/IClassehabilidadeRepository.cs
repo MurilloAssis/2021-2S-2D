@@ -16,6 +16,6 @@ namespace senai_hroads_tarde_webapi.Interfaces
 
         Classehabilidade BuscarPorId(byte id);
 
-        void Atualizar(byte id, Classehabilidade classeHabilidadeAtualizada);
+        void Atualizar(short id, Classehabilidade classeHabilidadeAtualizada);
     }
 }

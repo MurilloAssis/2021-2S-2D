@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai_hroads_tarde_webapi.Domains;
 using senai_hroads_tarde_webapi.Interfaces;
@@ -22,6 +23,7 @@ namespace senai_hroads_tarde_webapi.Controllers
             _habilidadeRepository = new HabilidadeRepository();
         }
 
+        [HttpGet]
         public IActionResult ListarTodos()
         {
             List<Habilidade> lista = _habilidadeRepository.ListarTodos();
@@ -29,24 +31,36 @@ namespace senai_hroads_tarde_webapi.Controllers
             return Ok(lista);
         }
 
+        [Authorize(Roles = "2")]
+        [HttpPost]
         public IActionResult Cadastrar(Habilidade novaHabilidade)
         {
             _habilidadeRepository.Cadastrar(novaHabilidade);
             return StatusCode(201);
         }
 
+        [HttpGet("{id}")]
         public IActionResult BuscarPorId(byte id)
         {
             Habilidade habilidade = _habilidadeRepository.BuscarPorId(id);
             return Ok(habilidade);
         }
 
+        [HttpDelete("{id}")]
         public IActionResult Deletar(byte id)
         {
-            _habilidadeRepository.Deletar(id);
-            return StatusCode(204);
+            try
+            {
+                _habilidadeRepository.Deletar(id);
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
         }
 
+        [HttpPut("{id}")]
         public IActionResult Atualizar(byte id, Habilidade habilidadeAtualizada)
         {
             _habilidadeRepository.Atualizar(id, habilidadeAtualizada);

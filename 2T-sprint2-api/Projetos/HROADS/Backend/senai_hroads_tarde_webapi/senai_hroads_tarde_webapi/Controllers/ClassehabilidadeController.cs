@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai_hroads_tarde_webapi.Domains;
 using senai_hroads_tarde_webapi.Interfaces;
@@ -22,6 +23,7 @@ namespace senai_hroads_tarde_webapi.Controllers
             _classehabilidadeRepository = new ClassehabilidadeRepository();
         }
 
+        [HttpGet]
         public IActionResult ListarTodos()
         {
             List<Classehabilidade> lista = _classehabilidadeRepository.ListarTodos();
@@ -29,25 +31,38 @@ namespace senai_hroads_tarde_webapi.Controllers
             return Ok(lista);
         }
 
+        [Authorize(Roles = "2")]
+        [HttpPost]
         public IActionResult Cadastrar(Classehabilidade novaClassehabilidade)
         {
             _classehabilidadeRepository.Cadastrar(novaClassehabilidade);
             return StatusCode(201);
         }
 
+        [HttpGet("{id}")]
         public IActionResult BuscarPorId(byte id)
         {
             Classehabilidade classehabilidade = _classehabilidadeRepository.BuscarPorId(id);
             return Ok(classehabilidade);
         }
 
+        [HttpDelete("{id}")]
         public IActionResult Deletar(byte id)
         {
-            _classehabilidadeRepository.Deletar(id);
-            return StatusCode(204);
+            try
+            {
+                _classehabilidadeRepository.Deletar(id);
+                return StatusCode(204);
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
         }
 
-        public IActionResult Atualizar(byte id, Classehabilidade classehabilidadeAtualizada)
+
+        [HttpPut("{id}")]
+        public IActionResult Atualizar(short id, Classehabilidade classehabilidadeAtualizada)
         {
             _classehabilidadeRepository.Atualizar(id, classehabilidadeAtualizada);
 
