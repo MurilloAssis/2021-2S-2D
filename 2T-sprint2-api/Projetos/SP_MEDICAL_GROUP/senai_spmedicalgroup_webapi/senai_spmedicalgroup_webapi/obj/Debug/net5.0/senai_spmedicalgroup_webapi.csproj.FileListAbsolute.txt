@@ -56,3 +56,14 @@ C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GRO
 C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\obj\Debug\net5.0\ref\senai_spmedicalgroup_webapi.dll
 C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\obj\Debug\net5.0\senai_spmedicalgroup_webapi.pdb
 C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\obj\Debug\net5.0\senai_spmedicalgroup_webapi.genruntimeconfig.cache
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\obj\Debug\net5.0\senai_spmedicalgroup_webapi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\bin\Debug\net5.0\senai_spmedicalgroup_webapi.xml
+C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\obj\Debug\net5.0\senai_spmedicalgroup_webapi.xml
