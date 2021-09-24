@@ -32,6 +32,7 @@ namespace senai_hroads_tarde_webapi.Controllers
             return Ok(lista);
         }
 
+        [Authorize(Roles = "2")]
         [HttpPost]
         public IActionResult Cadastrar(Usuario novoUsuario)
         {

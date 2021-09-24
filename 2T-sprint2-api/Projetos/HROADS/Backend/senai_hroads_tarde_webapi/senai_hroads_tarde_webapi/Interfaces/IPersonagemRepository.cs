@@ -10,12 +10,12 @@ namespace senai_hroads_tarde_webapi.Interfaces
     {
         List<Personagem> ListarTodos();
 
-        void Cadastrar();
+        void Cadastrar(Personagem novoPerso);
 
-        void Deletar();
+        void Deletar(byte id);
 
-        Personagem BuscarPorId();
+        Personagem BuscarPorId(byte id);
 
-        void Atualizar();
+        void Atualizar(byte id, Personagem persoAtt);
     }
 }
