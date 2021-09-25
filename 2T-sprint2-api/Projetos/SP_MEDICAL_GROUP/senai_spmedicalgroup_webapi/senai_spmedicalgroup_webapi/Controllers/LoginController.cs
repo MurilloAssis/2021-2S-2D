@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using senai_spmedicalgroup_webapi.Domains;
 using senai_spmedicalgroup_webapi.Interfaces;
 using senai_spmedicalgroup_webapi.Repositories;
+using senai_spmedicalgroup_webapi.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -26,7 +27,7 @@ namespace senai_spmedicalgroup_webapi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(Usuario Login)
+        public IActionResult Login(LoginViewModel Login)
         {
             Usuario usuarioBuscado = _usuarioRepository.Login(Login.EmailUsuario, Login.SenhaUsuario);
             if (usuarioBuscado != null)

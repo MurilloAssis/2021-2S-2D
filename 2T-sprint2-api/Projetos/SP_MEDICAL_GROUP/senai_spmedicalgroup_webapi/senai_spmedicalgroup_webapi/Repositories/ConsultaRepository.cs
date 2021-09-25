@@ -46,7 +46,7 @@ namespace senai_spmedicalgroup_webapi.Repositories
         public void CancelarConsulta(int Id)
         {
             Consultum consultaBuscada = BuscarPorId(Id);
-
+            
             consultaBuscada.IdSituacao = 3;
             consultaBuscada.DescricaoConsulta = "Consulta Cancelada!";
 
@@ -57,8 +57,12 @@ namespace senai_spmedicalgroup_webapi.Repositories
 
         public List<Consultum> ListarConsultaMedico(int id)
         {
+            Medico medico = ctx.Medicos.FirstOrDefault(u => u.IdUsuario == id);
+
+            int idMedico = medico.IdMedico;
+
             return ctx.Consulta
-                            .Where(c => c.IdMedico == id)
+                            .Where(c => c.IdMedico == idMedico)
                             .IgnoreAutoIncludes()
                             .Include(c => c.IdMedicoNavigation)
                             .ToList();
@@ -66,8 +70,11 @@ namespace senai_spmedicalgroup_webapi.Repositories
 
         public List<Consultum> ListarConsultaPaciente(int id)
         {
+            Paciente paciente = ctx.Pacientes.FirstOrDefault(u => u.IdUsuario == id);
+
+            int idPaciente = paciente.IdPaciente;
             return ctx.Consulta
-                            .Where(c => c.IdConsulta == id)
+                            .Where(c => c.IdConsulta == idPaciente)
                             .Include(c => c.IdMedicoNavigation)
                             .ToList();
                             

@@ -20,6 +20,7 @@ namespace senai_spmedicalgroup_webapi.Contexts
 
         public virtual DbSet<Consultum> Consulta { get; set; }
         public virtual DbSet<Especializacao> Especializacaos { get; set; }
+        public virtual DbSet<ImagemUsuario> ImagemUsuarios { get; set; }
         public virtual DbSet<Instituicao> Instituicaos { get; set; }
         public virtual DbSet<Medico> Medicos { get; set; }
         public virtual DbSet<Paciente> Pacientes { get; set; }
@@ -31,7 +32,7 @@ namespace senai_spmedicalgroup_webapi.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-CV21P6P\\SQLEXPRESS; initial catalog=SP_MEDICAL_GROUP; user Id=sa; pwd=#Murillo1#;");
             }
         }
@@ -43,7 +44,7 @@ namespace senai_spmedicalgroup_webapi.Contexts
             modelBuilder.Entity<Consultum>(entity =>
             {
                 entity.HasKey(e => e.IdConsulta)
-                    .HasName("PK__consulta__CA9C61F5FD12A6A8");
+                    .HasName("PK__consulta__CA9C61F50E6FCB46");
 
                 entity.ToTable("consulta");
 
@@ -68,17 +69,17 @@ namespace senai_spmedicalgroup_webapi.Contexts
                 entity.HasOne(d => d.IdMedicoNavigation)
                     .WithMany(p => p.Consulta)
                     .HasForeignKey(d => d.IdMedico)
-                    .HasConstraintName("FK__consulta__idMedi__4F7CD00D");
+                    .HasConstraintName("FK__consulta__idMedi__6FE99F9F");
 
                 entity.HasOne(d => d.IdPacienteNavigation)
                     .WithMany(p => p.Consulta)
                     .HasForeignKey(d => d.IdPaciente)
-                    .HasConstraintName("FK__consulta__idPaci__5165187F");
+                    .HasConstraintName("FK__consulta__idPaci__71D1E811");
 
                 entity.HasOne(d => d.IdSituacaoNavigation)
                     .WithMany(p => p.Consulta)
                     .HasForeignKey(d => d.IdSituacao)
-                    .HasConstraintName("FK__consulta__idSitu__5070F446");
+                    .HasConstraintName("FK__consulta__idSitu__70DDC3D8");
             });
 
             modelBuilder.Entity<Especializacao>(entity =>
@@ -95,6 +96,45 @@ namespace senai_spmedicalgroup_webapi.Contexts
                     .HasMaxLength(50)
                     .IsUnicode(false)
                     .HasColumnName("tipoEspecializacao");
+            });
+
+            modelBuilder.Entity<ImagemUsuario>(entity =>
+            {
+                entity.ToTable("imagemUsuario");
+
+                entity.HasIndex(e => e.IdUsuario, "UQ__imagemUs__645723A75A42D23D")
+                    .IsUnique();
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Binario)
+                    .IsRequired()
+                    .HasColumnName("binario");
+
+                entity.Property(e => e.DataInclusao)
+                    .HasColumnType("datetime")
+                    .HasColumnName("data_inclusao")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.IdUsuario).HasColumnName("idUsuario");
+
+                entity.Property(e => e.MimeType)
+                    .IsRequired()
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnName("mimeType");
+
+                entity.Property(e => e.NomeArquivo)
+                    .IsRequired()
+                    .HasMaxLength(250)
+                    .IsUnicode(false)
+                    .HasColumnName("nomeArquivo");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithOne(p => p.ImagemUsuario)
+                    .HasForeignKey<ImagemUsuario>(d => d.IdUsuario)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__imagemUsu__idUsu__17036CC0");
             });
 
             modelBuilder.Entity<Instituicao>(entity =>
