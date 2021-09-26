@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Projetos\\SP_MEDICAL_GROUP\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi.csproj": {}
+    "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Projetos\\SP_MEDICAL_GROUP\\BackEnd\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Projetos\\SP_MEDICAL_GROUP\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi.csproj": {
+    "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Projetos\\SP_MEDICAL_GROUP\\BackEnd\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Projetos\\SP_MEDICAL_GROUP\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi.csproj",
+        "projectUniqueName": "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Projetos\\SP_MEDICAL_GROUP\\BackEnd\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi.csproj",
         "projectName": "senai_spmedicalgroup_webapi",
-        "projectPath": "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Projetos\\SP_MEDICAL_GROUP\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi.csproj",
+        "projectPath": "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Projetos\\SP_MEDICAL_GROUP\\BackEnd\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi.csproj",
         "packagesPath": "C:\\Users\\Murillo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Projetos\\SP_MEDICAL_GROUP\\senai_spmedicalgroup_webapi\\senai_spmedicalgroup_webapi\\obj\\",
+        "outputPath": "C:\\Users\\Murillo\\Desktop\\Senai\\2021-2S-2D\\2T-sprint2-api\\Projetos\\SP_MEDICAL_GROUP\\BackEnd\\senai_spmedicalgroup_webapi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Murillo\\AppData\\Roaming\\NuGet\\NuGet.Config",

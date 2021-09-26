@@ -4,7 +4,7 @@
     <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
     <ActiveDebugProfile>senai_spmedicalgroup_webapi</ActiveDebugProfile>
-    <NameOfLastUsedPublishProfile>C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\senai_spmedicalgroup_webapi\senai_spmedicalgroup_webapi\Properties\PublishProfiles\senai-spmedicalgroup-webapi-murillo - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\BackEnd\senai_spmedicalgroup_webapi\Properties\PublishProfiles\senai-spmedicalgroup-webapi-murillo - FTP.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

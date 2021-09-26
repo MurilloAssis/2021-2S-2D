@@ -9,5 +9,10 @@ namespace senai_spmedicalgroup_webapi.Interfaces
     interface IPacienteRepository
     {
         List<Paciente> ListarTodos();
+        void Cadastrar(Paciente novoPaciente);
+        void Deletar(int id);
+        void Atualizar(int id, Paciente attPaciente);
+        Paciente BuscarPorId(int id);
+
     }
 }
