@@ -9,5 +9,7 @@ namespace senai_spmedicalgroup_webapi.Interfaces
     interface IMedicoRepository
     {
         List<Medico> ListarTodos();
+
+        void Cadastrar(Medico novoMedico);
     }
 }

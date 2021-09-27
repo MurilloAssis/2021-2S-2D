@@ -30,5 +30,33 @@ namespace senai_spmedicalgroup_webapi.Controllers
             return Ok(lista);
         }
 
+        [HttpPost]
+        public IActionResult Cadastrar(Medico novoMedico)
+        {
+            try
+            {
+                if (novoMedico.Crm == null || novoMedico.IdEspecializacao <= 0 || novoMedico.IdInstituicao <= 0 || novoMedico.IdUsuario <= 0)
+                {
+                    return BadRequest(new
+                    {
+                        Mensagem = "Os dados são inválidos!"
+                    });
+                }
+
+                _medicoRepository.Cadastrar(novoMedico);
+
+                return Ok(new
+                {
+                    Mensagem = "Um novo médico foi cadastrado",
+                    novoMedico
+                });
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(ex.Message);
+            }
+        }
+
     }
 }

@@ -15,5 +15,12 @@ namespace senai_spmedicalgroup_webapi.Repositories
         {
            return ctx.Medicos.ToList();
         }
+
+        public void Cadastrar(Medico novoMedico)
+        {
+            ctx.Medicos.Add(novoMedico);
+
+            ctx.SaveChanges();
+        }
     }
 }

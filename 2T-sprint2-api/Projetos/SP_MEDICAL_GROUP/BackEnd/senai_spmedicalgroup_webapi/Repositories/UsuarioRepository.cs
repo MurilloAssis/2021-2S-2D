@@ -24,7 +24,17 @@ namespace senai_spmedicalgroup_webapi.Repositories
 
         public List<Usuario> ListarUsuarios()
         {
-            return ctx.Usuarios.ToList();
+            return ctx.Usuarios
+                .Select(u => new Usuario
+                {
+                    EmailUsuario = u.EmailUsuario,
+                    NomeUsuario = u.NomeUsuario,
+                    IdTipoUsuarioNavigation = new TipoUsuario()
+                    {
+                        TituloTipoUsuario = u.IdTipoUsuarioNavigation.TituloTipoUsuario
+                    }
+                })
+                .ToList();
         }
 
         public void Deletar(int id)

@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace senai_spmedicalgroup_webapi.Controllers
@@ -31,7 +32,7 @@ namespace senai_spmedicalgroup_webapi.Controllers
             try
             {
                 List<Consultum> listaConsultas = _consultaRepository.ListarTodas();
-                if (listaConsultas == null)
+                if (listaConsultas.Count == 0)
                 {
                     return StatusCode(404, new
                     {
@@ -114,48 +115,43 @@ namespace senai_spmedicalgroup_webapi.Controllers
 
         }
 
-        [Authorize(Roles = "2")]
-        [HttpGet("Lista/Paciente")]
-        public IActionResult ListarTodosPaciente()
+        [Authorize(Roles = "2, 3")]
+        [HttpGet("Lista/Minhas")]
+        public IActionResult ListarMinhas()
         {
             try
             {
-                int id = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
 
-                if (_consultaRepository.ListarConsultaPaciente(id) == null)
+                int id = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
+                int idTipo = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == ClaimTypes.Role).Value);
+                List<Consultum> listaConsulta = _consultaRepository.ListarMinhasConsultas(id, idTipo);
+
+                if (listaConsulta.Count == 0)
                 {
-                    return BadRequest(new
+                    return NotFound(new
                     {
-                        Mensagem = "Não há nenhuma consulta com o paciente informado!"
+                        Mensagem = "Não há nenhuma consulta com o usuário informado!"
                     });
                 }
 
-                return Ok(_consultaRepository.ListarConsultaPaciente(id));
-            }
-            catch (Exception ex)
-            {
-
-                return BadRequest(ex.Message);
-            }
-
-        }
-
-        [Authorize(Roles = "3")]
-        [HttpGet("Lista/Medico")]
-        public IActionResult ListarTodosMedico()
-        {
-            try
-            {
-                int id = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
-
-                if (_consultaRepository.ListarConsultaMedico(id) == null)
+                if (idTipo == 2)
                 {
-                    return BadRequest(new
+                    return Ok(new
                     {
-                        Mensagem = "Não há nenhuma consulta com o médico informado!"
+                        Mensagem = $"O paciente buscado tem {_consultaRepository.ListarMinhasConsultas(id, idTipo).Count} consultas",
+                        listaConsulta
                     });
                 }
-                return Ok(_consultaRepository.ListarConsultaMedico(id));
+                if (idTipo == 3)
+                {
+                    return Ok(new
+                    {
+                        Mensagem = $"O médico buscado tem {_consultaRepository.ListarMinhasConsultas(id, idTipo).Count} consultas",
+                        listaConsulta
+                    });
+                }
+                return null;
+                
             }
             catch (Exception ex)
             {
@@ -171,6 +167,8 @@ namespace senai_spmedicalgroup_webapi.Controllers
         {
             try
             {
+                Consultum consultaBuscada = _consultaRepository.BuscarPorId(id);
+                int idMedico = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == JwtRegisteredClaimNames.Jti).Value);
                 if (consultaAtt.DescricaoConsulta == null)
                 {
                     return BadRequest(new
@@ -178,6 +176,9 @@ namespace senai_spmedicalgroup_webapi.Controllers
                         Mensagem = "É necessário informar a descrição!"
                     });
                 }
+                
+
+                
 
                 if (id <= 0)
                 {
@@ -194,12 +195,20 @@ namespace senai_spmedicalgroup_webapi.Controllers
                         Mensagem = "Não há nenhuma consulta com o ID informado!"
                     });
                 }
+
+                if (consultaBuscada.IdMedico != idMedico)
+                {
+                    return BadRequest(new
+                    {
+                        Mensagem = "Somente o médico titular da consulta pode fazer alterações na descrição!"
+                    });
+                }
                 _consultaRepository.AlterarDescricao(consultaAtt.DescricaoConsulta, id);
                 return StatusCode(200, new
                 {
                     Mensagem = "A descrição da consulta foi alterada com sucesso!",
-                    consultaAtt
-                });
+                    consultaBuscada
+                }) ;
             }
             catch (Exception ex)
             {
@@ -236,10 +245,10 @@ namespace senai_spmedicalgroup_webapi.Controllers
                     Mensagem = "A consulta informada foi removida do sistema!"
                 });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                return BadRequest(ex.Message);
             }
         }
     }

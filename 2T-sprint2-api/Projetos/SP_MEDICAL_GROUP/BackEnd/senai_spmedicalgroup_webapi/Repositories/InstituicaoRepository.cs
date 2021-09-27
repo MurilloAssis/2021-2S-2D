@@ -52,7 +52,13 @@ namespace senai_spmedicalgroup_webapi.Repositories
         {
             return ctx.Instituicaos
                     .AsNoTracking()
-                    .Include(c => c.Medicos)
+                    .Select(c => new Instituicao
+                    {
+                        Cnpj = c.Cnpj,
+                        Endereco = c.Endereco,
+                        NomeFantasia = c.NomeFantasia,
+                        Medicos = ctx.Medicos.Where(m => m.IdInstituicao == c.IdInstituicao).ToList()
+                    })                    
                     .ToList();
         }
     }
