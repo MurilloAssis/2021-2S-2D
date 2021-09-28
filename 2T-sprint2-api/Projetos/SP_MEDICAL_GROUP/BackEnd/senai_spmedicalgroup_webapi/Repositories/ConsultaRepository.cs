@@ -105,7 +105,7 @@ namespace senai_spmedicalgroup_webapi.Repositories
 
                 int idPaciente = paciente.IdPaciente;
                 return ctx.Consulta
-                                .Where(c => c.IdConsulta == idPaciente)
+                                .Where(c => c.IdPaciente == idPaciente)
                                 .AsNoTracking()
                                 .Select(p => new Consultum()
                                 {

@@ -54,7 +54,18 @@ namespace senai_spmedicalgroup_webapi.Repositories
         {
             return ctx.Pacientes
                         .AsNoTracking()
-                        .Include(p => p.IdUsuarioNavigation)
+                        .Select(p => new Paciente()
+                        {
+                            Rg = p.Rg,
+                            EnderecoPaciente = p.EnderecoPaciente,
+                            DataNasc = p.DataNasc,
+                            Telefone = p.Telefone,
+                            IdUsuarioNavigation = new Usuario()
+                            {
+                                NomeUsuario = p.IdUsuarioNavigation.NomeUsuario,
+                                EmailUsuario = p.IdUsuarioNavigation.EmailUsuario,                              
+                            }
+                        })
                         .ToList();
                 
         }
