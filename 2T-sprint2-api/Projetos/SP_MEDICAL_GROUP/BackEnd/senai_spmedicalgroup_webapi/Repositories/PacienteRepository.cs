@@ -18,9 +18,9 @@ namespace senai_spmedicalgroup_webapi.Repositories
 
             if (attPaciente.Cpf != null || attPaciente.Rg != null || attPaciente.Telefone != null || attPaciente.EnderecoPaciente != null || attPaciente.DataNasc < DateTime.Now)
             {
-                pacienteBuscado.Rg = attPaciente.Rg;
-                pacienteBuscado.IdUsuario = attPaciente.IdUsuario;
-                pacienteBuscado.Cpf = attPaciente.Cpf;
+                pacienteBuscado.Rg = pacienteBuscado.Rg;
+                pacienteBuscado.IdUsuario = pacienteBuscado.IdUsuario;
+                pacienteBuscado.Cpf = pacienteBuscado.Cpf;
                 pacienteBuscado.Telefone = attPaciente.Telefone;
                 pacienteBuscado.EnderecoPaciente = attPaciente.EnderecoPaciente;
                 pacienteBuscado.DataNasc = attPaciente.DataNasc;
