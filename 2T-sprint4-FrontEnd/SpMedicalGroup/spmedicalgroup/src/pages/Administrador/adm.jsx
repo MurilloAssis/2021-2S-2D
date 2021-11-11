@@ -1,12 +1,17 @@
-import { Component } from "react"
+import { useEffect, useState } from "react"
 import '../../assets/css/style.css'
 import '../../assets/css/consultasAdm.css'
 import Header from "../../components/Header/header"
 import Footer from "../../components/Footer/footer"
+import axios from "axios"
 
-export default class administrador extends Component{
+export default function administrador(){
 
-    render() {
+    const [listaConsultas, setListaConsultas] = useState( [] )
+    function consultasAdm(){
+        axios()
+    }
+   
         return (
             <div>
 
@@ -67,5 +72,5 @@ export default class administrador extends Component{
             <Footer></Footer>
             </div>
         )
-    }
+    
 }
