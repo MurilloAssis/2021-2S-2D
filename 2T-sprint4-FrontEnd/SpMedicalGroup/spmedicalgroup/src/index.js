@@ -19,7 +19,7 @@ const routing = (
     <div>
       <Switch>
         <Route path="/login" component={Login}/>
-        <Route path="/listarEventos" component={Administrador}/>
+        <Route path="/listarConsultas" component={Administrador}/>
       </Switch>
     </div>
   </Router>

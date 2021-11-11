@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios'
+import { parseJwt, usuarioAutenticado } from "../../services/auth";
 import '../../assets/css/login.css';
 import logo from "../../assets/img/logo_spmedgroup_v1 1.png"
 
@@ -9,22 +10,45 @@ import logo from "../../assets/img/logo_spmedgroup_v1 1.png"
 export default class Login extends Component {
 
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      email: '',
-      senha : '',
+      email: 'Rafaela@email.com',
+      senha : '1234',
       erroMensagem : '',
       isLoading : false
     };
   }
 
-  efetuaLogin(event) {
-    event.PreventDefault();
+  efetuaLogin = (event) => {
+    event.preventDefault();
 
-    this.setState({isLoading : true, erroMensagem : ''})
+    this.setState({ erroMensagem: '', isLoading: true });
 
-    axios.post()
+    axios.post('http://localhost:5000/api/Login', {
+      emailUsuario : this.state.email,
+      senhaUsuario : this.state.senha
+    })
 
+    .then((response) => {
+      if(response.status === 200){
+        localStorage.setItem('usuario-login', response.data.token)
+        this.setState({isLoading : false})
+
+      
+
+        if(parseJwt().role === '1'){
+          this.props.history.push('/listarconsultas')
+
+        }
+      }
+    })
+
+  }
+
+  atualizaStateCampo = (campo) => {
+    this.setState({[campo.target.name] : campo.target.value})
+
+    console.log(campo.target.value)
   }
   render() {
     return (
@@ -42,13 +66,15 @@ export default class Login extends Component {
                   Bem-vindo! Faça login para acessar sua conta.
                 </p>
               </div>
-              <form>
+              <form onSubmit={this.efetuaLogin}>
                 <div className="item">
                   <input
                     className="input__login"
                     placeholder="E-mail"
+                    value={this.state.email}
+                    onChange={this.atualizaStateCampo}
                     type="text"
-                    name="username"
+                    name="email"
                     id="login__email"
                   />
                 </div>
@@ -56,13 +82,15 @@ export default class Login extends Component {
                   <input
                     className="input__login"
                     placeholder="Senha"
+                    value={this.state.senha}
+                    onChange={this.atualizaStateCampo}
                     type="password"
-                    name="password"
+                    name="senha"
                     id="login__senha"
                   />
                 </div>
                 <div className="item">
-                  <button className="btn btn__login" id="btn__login">
+                  <button type="submit" className="btn btn__login" id="btn__login">
                     Login
                   </button>
                 </div>

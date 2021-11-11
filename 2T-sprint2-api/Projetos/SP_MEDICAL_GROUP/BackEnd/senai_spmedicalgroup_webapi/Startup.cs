@@ -49,6 +49,17 @@ namespace senai_spmedicalgroup_webapi
                     };
                 });
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                                builder =>
+                                {
+                                    builder.WithOrigins("http://localhost:3000")
+                                    .AllowAnyHeader()
+                                    .AllowAnyMethod();
+                                });
+            });    
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -71,6 +82,8 @@ namespace senai_spmedicalgroup_webapi
             }
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseSwagger();
 
