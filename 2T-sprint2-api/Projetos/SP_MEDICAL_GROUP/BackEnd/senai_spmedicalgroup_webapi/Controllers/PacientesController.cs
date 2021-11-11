@@ -39,11 +39,7 @@ namespace senai_spmedicalgroup_webapi.Controllers
                     });
                 }
 
-                return Ok(new
-                {
-                    Mensagem = $"Foram encontrados {lista.Count} pacientes",
-                    lista
-                });
+                return Ok(lista);
             }
             catch (Exception ex)
             {

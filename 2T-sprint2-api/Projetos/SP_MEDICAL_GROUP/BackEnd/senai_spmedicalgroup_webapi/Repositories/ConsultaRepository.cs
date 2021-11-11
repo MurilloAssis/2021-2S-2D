@@ -78,6 +78,10 @@ namespace senai_spmedicalgroup_webapi.Repositories
                                         {
                                             NomeUsuario = p.IdMedicoNavigation.IdUsuarioNavigation.NomeUsuario,
                                             EmailUsuario = p.IdMedicoNavigation.IdUsuarioNavigation.EmailUsuario
+                                        },
+                                        IdInstituicaoNavigation = new Instituicao()
+                                        {
+                                            NomeFantasia = p.IdMedicoNavigation.IdInstituicaoNavigation.NomeFantasia
                                         }
                                     },
                                     IdPacienteNavigation = new Paciente()
@@ -160,6 +164,10 @@ namespace senai_spmedicalgroup_webapi.Repositories
                         {
                             NomeUsuario = p.IdMedicoNavigation.IdUsuarioNavigation.NomeUsuario,
                             EmailUsuario = p.IdMedicoNavigation.IdUsuarioNavigation.EmailUsuario
+                        },
+                        IdInstituicaoNavigation = new Instituicao()
+                        {
+                            NomeFantasia = p.IdMedicoNavigation.IdInstituicaoNavigation.NomeFantasia
                         }
                     },
                     IdPacienteNavigation = new Paciente()
@@ -176,6 +184,7 @@ namespace senai_spmedicalgroup_webapi.Repositories
                     {
                         Descricao = p.IdSituacaoNavigation.Descricao
                     }
+                    
 
 
                 })
