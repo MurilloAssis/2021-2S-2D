@@ -12,7 +12,7 @@ export default function Administrador(){
     const [listaPacientes, setListaPacientes] = useState([])
     const [idMedico, setIdMedico] = useState(0)
     const [idPaciente, setIdPaciente] = useState(0)
-    const [dataCadastro, setDataCadastro] = useState(new Date)
+    const [dataCadastro, setDataCadastro] = useState(new Date())
     const [isLoading, setIsLoading] = useState(false)
 
     function consultasAdm(){
@@ -25,7 +25,6 @@ export default function Administrador(){
         .then(response => {
             if(response.status === 200){
                 setListaConsultas(response.data)
-                
             }
         })
         .catch(erro => console.log(erro))
@@ -67,6 +66,7 @@ export default function Administrador(){
 
     useEffect(pacientes, [])
 
+
     
 
     function cadastrarConsulta(event) {
@@ -75,30 +75,44 @@ export default function Administrador(){
         
 
         setIsLoading(true)
-
+        
         axios.post("http://localhost:5000/api/Consultas",{
             IdMedico : idMedico,
             idPaciente : idPaciente,
             dataConsulta : dataCadastro
         },{
-
+            
             headers : {
                 'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
             }
-
+            
             
             
         } )
         .then(response => {
             if (response.status === 201) {
                 setIsLoading(false)
-                
+                consultasAdm()
             }
         })
         .catch(erro => console.log(erro))
-        console.log(idMedico)
-        console.log(idPaciente)
-        console.log(dataCadastro)
+    }
+
+    function  onChangeIdMedico(evt){
+        let data = evt.target.value
+        setIdMedico(data)
+        console.log(data)
+    }
+    function  onChangeIdPaciente(evt){
+        let data = evt.target.value
+        setIdPaciente(data)
+        console.log(data)
+    }
+    
+    function onChangeDataCadastro(evt){
+        let data = evt.target.value
+        setDataCadastro(data)
+        console.log(data)
     }
     
    
@@ -117,33 +131,33 @@ export default function Administrador(){
                         </h2>
                         <form onSubmit={cadastrarConsulta}>
                             <div className="container">
-                                <select name="medico" id="">
+                                <select name="medico" onChange={onChangeIdMedico} id="">
                                 <option value="#">Escolha um médico</option>
                                     {
                                         listaMedicos.map( (event)  => {
                                             return(
 
-                                                <option key={event.idMedico} value={event.idMedico} onClick={() => setIdMedico(event.idMedico)} name="idMedico">{event.idUsuarioNavigation.nomeUsuario} </option>
+                                                <option key={event.idMedico} value={event.idMedico} >{event.idUsuarioNavigation.nomeUsuario} </option>
                                                 )
                                         })
                                     }
                                     
                                 </select>
 
-                                <select name="paciente" id="">
+                                <select name="paciente" id=""  onChange={onChangeIdPaciente}>
                                 <option value="#">Escolha um paciente</option>
                                     {
                                         listaPacientes.map( (event)  => {
 
                                             return(
 
-                                                <option key={event.idPaciente} value={event.idPaciente} onClick={() => setIdPaciente(event.idPaciente)} name="idPaciente">{event.idUsuarioNavigation.nomeUsuario}</option>
+                                                <option key={event.idPaciente} value={event.idPaciente}>{event.idUsuarioNavigation.nomeUsuario}</option>
                                                 )
                                         })
                                     }
                                 </select>
 
-                                <input value={dataCadastro} onClick={() => setDataCadastro(dataCadastro)} type="datetime-local" name="" id="" />
+                                <input onChange={onChangeDataCadastro} type="datetime-local" />
                                 <button
                                     type="submit"
                                     className="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro"
@@ -177,7 +191,11 @@ export default function Administrador(){
                                             <td>{event.descricaoConsulta}</td>
                                             <td>{event.idPacienteNavigation.idUsuarioNavigation.nomeUsuario}</td>
                                             <td>{event.idMedicoNavigation.idUsuarioNavigation.nomeUsuario}</td>
-                                            <td>{event.dataConsulta}</td>
+                                            <td>
+                                                {Intl.DateTimeFormat("pt-BR", {
+                                                    year: 'numeric', month: 'short', day: 'numeric'
+                                                }).format(new Date(event.dataConsulta))}
+                                                </td>
                                             <td>{event.idMedicoNavigation.idInstituicaoNavigation.nomeFantasia}</td>
                                         </tr>
                                         )

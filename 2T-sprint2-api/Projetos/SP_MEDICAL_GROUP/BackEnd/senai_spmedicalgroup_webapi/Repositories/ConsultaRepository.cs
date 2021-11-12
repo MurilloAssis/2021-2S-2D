@@ -157,6 +157,7 @@ namespace senai_spmedicalgroup_webapi.Repositories
                 {
                     DataConsulta = p.DataConsulta,
                     IdConsulta = p.IdConsulta,
+                    DescricaoConsulta  =  p.DescricaoConsulta,
                     IdMedicoNavigation = new Medico()
                     {
                         Crm = p.IdMedicoNavigation.Crm,

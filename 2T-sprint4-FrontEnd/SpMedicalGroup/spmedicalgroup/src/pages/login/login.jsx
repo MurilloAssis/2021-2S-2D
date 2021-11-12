@@ -1,7 +1,6 @@
 import { Component } from "react";
-import { Link } from 'react-router-dom';
 import axios from 'axios'
-import { parseJwt, usuarioAutenticado } from "../../services/auth";
+import { parseJwt } from "../../services/auth";
 import '../../assets/css/login.css';
 import logo from "../../assets/img/logo_spmedgroup_v1 1.png"
 
