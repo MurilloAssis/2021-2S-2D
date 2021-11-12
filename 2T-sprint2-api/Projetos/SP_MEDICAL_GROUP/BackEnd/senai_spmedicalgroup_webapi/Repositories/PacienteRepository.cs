@@ -56,6 +56,7 @@ namespace senai_spmedicalgroup_webapi.Repositories
                         .AsNoTracking()
                         .Select(p => new Paciente()
                         {
+                            IdPaciente = p.IdPaciente,
                             Rg = p.Rg,
                             EnderecoPaciente = p.EnderecoPaciente,
                             DataNasc = p.DataNasc,

@@ -10,6 +10,9 @@ export default function Administrador(){
     const [ listaConsultas, setListaConsultas ] = useState( [] )
     const [listaMedicos, setListaMedicos] = useState([])
     const [listaPacientes, setListaPacientes] = useState([])
+    const [idMedico, setIdMedico] = useState(0)
+    const [idPaciente, setIdPaciente] = useState(0)
+    const [dataCadastro, setDataCadastro] = useState(new Date)
     const [isLoading, setIsLoading] = useState(false)
 
     function consultasAdm(){
@@ -64,15 +67,19 @@ export default function Administrador(){
 
     useEffect(pacientes, [])
 
+    
+
     function cadastrarConsulta(event) {
         event.preventDefault();
+
+        
 
         setIsLoading(true)
 
         axios.post("http://localhost:5000/api/Consultas",{
-            IdMedico : event.idMedico,
-            idPaciente : event.idPaciente,
-            dataConsulta : event.dataConsulta
+            IdMedico : idMedico,
+            idPaciente : idPaciente,
+            dataConsulta : dataCadastro
         },{
 
             headers : {
@@ -85,9 +92,13 @@ export default function Administrador(){
         .then(response => {
             if (response.status === 201) {
                 setIsLoading(false)
+                
             }
         })
         .catch(erro => console.log(erro))
+        console.log(idMedico)
+        console.log(idPaciente)
+        console.log(dataCadastro)
     }
     
    
@@ -106,32 +117,33 @@ export default function Administrador(){
                         </h2>
                         <form onSubmit={cadastrarConsulta}>
                             <div className="container">
-                                <select name="" id="">
+                                <select name="medico" id="">
                                 <option value="#">Escolha um médico</option>
                                     {
                                         listaMedicos.map( (event)  => {
                                             return(
 
-                                                <option key={event.idMedico} value={event.idMedico} name="idMedico">{event.idUsuarioNavigation.nomeUsuario} </option>
+                                                <option key={event.idMedico} value={event.idMedico} onClick={() => setIdMedico(event.idMedico)} name="idMedico">{event.idUsuarioNavigation.nomeUsuario} </option>
                                                 )
                                         })
                                     }
                                     
                                 </select>
 
-                                <select name="" id="">
+                                <select name="paciente" id="">
                                 <option value="#">Escolha um paciente</option>
                                     {
                                         listaPacientes.map( (event)  => {
+
                                             return(
 
-                                                <option key={event.idPaciente} value={event.idPaciente} name="idPaciente">{event.idUsuarioNavigation.nomeUsuario}</option>
+                                                <option key={event.idPaciente} value={event.idPaciente} onClick={() => setIdPaciente(event.idPaciente)} name="idPaciente">{event.idUsuarioNavigation.nomeUsuario}</option>
                                                 )
                                         })
                                     }
                                 </select>
 
-                                <input type="datetime-local" name="" id="" />
+                                <input value={dataCadastro} onClick={() => setDataCadastro(dataCadastro)} type="datetime-local" name="" id="" />
                                 <button
                                     type="submit"
                                     className="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro"
