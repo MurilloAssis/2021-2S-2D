@@ -130,6 +130,10 @@ body {
 /* RODAPÉ */
 
 .rodapePrincipal {
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  
   padding-top: 20px;
   font-weight: lighter;
 }

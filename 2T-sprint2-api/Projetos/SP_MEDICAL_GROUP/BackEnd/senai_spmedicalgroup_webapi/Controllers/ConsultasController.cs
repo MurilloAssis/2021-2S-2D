@@ -126,29 +126,20 @@ namespace senai_spmedicalgroup_webapi.Controllers
                 int idTipo = Convert.ToInt32(HttpContext.User.Claims.First(c => c.Type == ClaimTypes.Role).Value);
                 List<Consultum> listaConsulta = _consultaRepository.ListarMinhasConsultas(id, idTipo);
 
-                if (listaConsulta.Count == 0)
-                {
-                    return NotFound(new
-                    {
-                        Mensagem = "Não há nenhuma consulta com o usuário informado!"
-                    });
-                }
 
                 if (idTipo == 2)
                 {
-                    return Ok(new
-                    {
-                        Mensagem = $"O paciente buscado tem {_consultaRepository.ListarMinhasConsultas(id, idTipo).Count} consultas",
+                    return Ok(
+                    
                         listaConsulta
-                    });
+                    );
                 }
                 if (idTipo == 3)
                 {
-                    return Ok(new
-                    {
-                        Mensagem = $"O médico buscado tem {_consultaRepository.ListarMinhasConsultas(id, idTipo).Count} consultas",
+                    return Ok(
+                    
                         listaConsulta
-                    });
+                    );
                 }
                 return null;
                 

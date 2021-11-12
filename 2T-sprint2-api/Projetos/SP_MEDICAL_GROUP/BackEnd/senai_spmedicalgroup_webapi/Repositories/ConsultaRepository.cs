@@ -71,6 +71,7 @@ namespace senai_spmedicalgroup_webapi.Repositories
                                 {
                                     DataConsulta = p.DataConsulta,
                                     IdConsulta = p.IdConsulta,
+                                    DescricaoConsulta = p.DescricaoConsulta,
                                     IdMedicoNavigation = new Medico()
                                     {
                                         Crm = p.IdMedicoNavigation.Crm,
@@ -107,7 +108,7 @@ namespace senai_spmedicalgroup_webapi.Repositories
             {
                 Paciente paciente = ctx.Pacientes.FirstOrDefault(u => u.IdUsuario == id);
 
-                int idPaciente = paciente.IdPaciente;
+                short idPaciente = paciente.IdPaciente;
                 return ctx.Consulta
                                 .Where(c => c.IdPaciente == idPaciente)
                                 .AsNoTracking()
@@ -121,7 +122,12 @@ namespace senai_spmedicalgroup_webapi.Repositories
                                         IdUsuarioNavigation = new Usuario()
                                         {
                                             NomeUsuario = p.IdMedicoNavigation.IdUsuarioNavigation.NomeUsuario,
-                                            EmailUsuario = p.IdMedicoNavigation.IdUsuarioNavigation.EmailUsuario                                          
+                                            EmailUsuario = p.IdMedicoNavigation.IdUsuarioNavigation.EmailUsuario,
+                                            
+                                        },
+                                        IdInstituicaoNavigation = new Instituicao()
+                                        {
+                                            NomeFantasia = p.IdMedicoNavigation.IdInstituicaoNavigation.NomeFantasia
                                         }
                                     },
                                     IdPacienteNavigation = new Paciente()
@@ -140,11 +146,17 @@ namespace senai_spmedicalgroup_webapi.Repositories
                                     }
                                     
                                     
+                                    
                                 })
                                 .ToList();
             }
 
+            else
+            {
+
             return null;
+            }
+
             
         }
 

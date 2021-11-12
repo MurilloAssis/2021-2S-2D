@@ -12,6 +12,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './pages/login/login';
 import Administrador from './pages/Administrador/adm';
+import Medico from './pages/medico/medico'
 
 
 const routing = (
@@ -20,6 +21,7 @@ const routing = (
       <Switch>
         <Route path="/login" component={Login}/>
         <Route path="/listarConsultas" component={Administrador}/>
+        <Route path="/minhasConsultas" component={Medico}/>
         <Redirect to="/login"/>
       </Switch>
     </div>

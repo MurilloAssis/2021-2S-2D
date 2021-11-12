@@ -97,24 +97,6 @@ export default function Administrador(){
         })
         .catch(erro => console.log(erro))
     }
-
-    function  onChangeIdMedico(evt){
-        let data = evt.target.value
-        setIdMedico(data)
-        console.log(data)
-    }
-    function  onChangeIdPaciente(evt){
-        let data = evt.target.value
-        setIdPaciente(data)
-        console.log(data)
-    }
-    
-    function onChangeDataCadastro(evt){
-        let data = evt.target.value
-        setDataCadastro(data)
-        console.log(data)
-    }
-    
    
         return (
             <div>
@@ -131,7 +113,7 @@ export default function Administrador(){
                         </h2>
                         <form onSubmit={cadastrarConsulta}>
                             <div className="container">
-                                <select name="medico" onChange={onChangeIdMedico} id="">
+                                <select name="medico" onChange={ (evt) => setIdMedico(evt.target.value) } id="">
                                 <option value="#">Escolha um médico</option>
                                     {
                                         listaMedicos.map( (event)  => {
@@ -144,7 +126,7 @@ export default function Administrador(){
                                     
                                 </select>
 
-                                <select name="paciente" id=""  onChange={onChangeIdPaciente}>
+                                <select name="paciente" id=""  onChange={(evt) => setIdPaciente(evt.target.value)}>
                                 <option value="#">Escolha um paciente</option>
                                     {
                                         listaPacientes.map( (event)  => {
@@ -157,7 +139,7 @@ export default function Administrador(){
                                     }
                                 </select>
 
-                                <input onChange={onChangeDataCadastro} type="datetime-local" />
+                                <input onChange={(evt) => setDataCadastro(evt.target.value)} type="datetime-local" />
                                 <button
                                     type="submit"
                                     className="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro"

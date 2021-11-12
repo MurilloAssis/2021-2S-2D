@@ -11,7 +11,7 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'Rafaela@email.com',
+      email: 'ricardo.lemos@spmedicalgroup.com.br',
       senha : '1234',
       erroMensagem : '',
       isLoading : false
@@ -37,6 +37,14 @@ export default class Login extends Component {
 
         if(parseJwt().role === '1'){
           this.props.history.push('/listarconsultas')
+
+        }
+        if(parseJwt().role === '2'){
+          this.props.history.push('/minhasConsultas')
+
+        }
+        if(parseJwt().role === '3'){
+          this.props.history.push('/minhasConsultas')
 
         }
       }
