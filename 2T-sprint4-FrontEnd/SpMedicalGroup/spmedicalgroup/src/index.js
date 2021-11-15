@@ -5,7 +5,6 @@ import {
   BrowserRouter as Router,
   Redirect,
   Switch
-
 } from 'react-router-dom';
 import { parseJwt, usuarioAutenticado } from './services/auth';
 import './index.css';
@@ -57,7 +56,7 @@ const routing = (
         <PermissaoAdm path="/listarConsultas" component={Administrador} />
         <PermissaoMedico path="/minhasConsultasMedico" component={Medico} />
         <PermissaoPaciente path="/minhasConsultasPaciente" component={Paciente} />
-        <Redirect to="/login" />
+        <Route exact patch="/"><Redirect to="/login"/></Route>
       </Switch>
     </div>
   </Router>

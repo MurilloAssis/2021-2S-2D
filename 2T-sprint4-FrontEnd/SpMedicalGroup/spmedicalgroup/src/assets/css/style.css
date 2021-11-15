@@ -132,7 +132,10 @@ body {
 .rodapePrincipal {
   width: 100%;
   padding-top: 20px;
+  margin-top: 20px;
   font-weight: lighter;
+  position: fixed;
+  bottom: 0;
 }
 
 
@@ -211,6 +214,7 @@ justify-content: center;
   /* background-color: #ffffff; */
   min-height: 100px;
   text-align: center;
+  margin-bottom: 80px;
 }
 
 #tabela-lista {

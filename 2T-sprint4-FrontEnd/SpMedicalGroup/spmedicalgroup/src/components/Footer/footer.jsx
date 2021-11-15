@@ -4,9 +4,9 @@ import '../../assets/css/login.css';
 
 export default function footer(){
     return(
-      <footer class="rodapePrincipal">
-        <section class="rodapePrincipal-patrocinadores">
-          <div class="container">
+      <footer className="rodapePrincipal">
+        <section className="rodapePrincipal-patrocinadores">
+          <div className="container">
             <p>Escola SENAI de Informática - 2021</p>
           </div>
         </section>
