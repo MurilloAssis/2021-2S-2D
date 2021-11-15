@@ -140,12 +140,26 @@ export default function Administrador(){
                                 </select>
 
                                 <input onChange={(evt) => setDataCadastro(evt.target.value)} type="datetime-local" />
-                                <button
+
+                                {isLoading && (
+                                    <button
+                                    type="submit"
+                                    className="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro"
+                                    disabled
+                                >
+                                    Carregando...
+                                </button>
+                                )}
+
+                                {isLoading === false && (
+                                    <button
                                     type="submit"
                                     className="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro"
                                 >
                                     Cadastrar
                                 </button>
+                                )}
+                                
                             </div>
                         </form>
                     </section>

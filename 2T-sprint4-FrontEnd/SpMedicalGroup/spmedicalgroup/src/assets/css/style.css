@@ -131,9 +131,6 @@ body {
 
 .rodapePrincipal {
   width: 100%;
-  position: sticky;
-  bottom: 0;
-  
   padding-top: 20px;
   font-weight: lighter;
 }
@@ -145,6 +142,7 @@ body {
   padding: 20px 0;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .rodapePrincipal-patrocinadores div{

@@ -11,8 +11,8 @@ export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: 'ricardo.lemos@spmedicalgroup.com.br',
-      senha : '1234',
+      email: '',
+      senha : '',
       erroMensagem : '',
       isLoading : false
     };
@@ -40,16 +40,16 @@ export default class Login extends Component {
 
         }
         if(parseJwt().role === '2'){
-          this.props.history.push('/minhasConsultas')
+          this.props.history.push('/minhasConsultasPaciente')
 
         }
         if(parseJwt().role === '3'){
-          this.props.history.push('/minhasConsultas')
+          this.props.history.push('/minhasConsultasMedico')
 
         }
       }
     })
-
+    this.setState({isLoading : false})
   }
 
   atualizaStateCampo = (campo) => {
@@ -80,7 +80,7 @@ export default class Login extends Component {
                     placeholder="E-mail"
                     value={this.state.email}
                     onChange={this.atualizaStateCampo}
-                    type="text"
+                    type="email"
                     name="email"
                     id="login__email"
                   />
@@ -97,9 +97,18 @@ export default class Login extends Component {
                   />
                 </div>
                 <div className="item">
-                  <button type="submit" className="btn btn__login" id="btn__login">
+
+                  {this.state.isLoading && (
+                  <button type="submit" className="btn btn__login" id="btn__login" disabled>
+                    Carregando...
+                  </button>
+                  )}
+
+                  {this.state.isLoading === false && (
+                  <button type="submit" className="btn btn__login" id="btn__login" >
                     Login
                   </button>
+                  )}
                 </div>
               </form>
             </div>

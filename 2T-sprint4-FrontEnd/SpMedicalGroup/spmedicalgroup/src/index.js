@@ -4,29 +4,64 @@ import {
   Route,
   BrowserRouter as Router,
   Redirect,
-  Switch,
+  Switch
 
 } from 'react-router-dom';
+import { parseJwt, usuarioAutenticado } from './services/auth';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Login from './pages/login/login';
 import Administrador from './pages/Administrador/adm';
 import Medico from './pages/medico/medico'
+import Paciente from './pages/paciente/paciente'
 
+const PermissaoAdm = ({ component: Component }) => (
+  <Route
+    render={(props) =>
+      usuarioAutenticado() && parseJwt().role === '1' ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
+const PermissaoMedico = ({ component: Component }) => (
+  <Route
+    render={(props) =>
+      usuarioAutenticado() && parseJwt().role === '3' ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
+const PermissaoPaciente = ({ component: Component }) => (
+  <Route
+    render={(props) =>
+      usuarioAutenticado() && parseJwt().role === '2' ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
 
 const routing = (
   <Router>
     <div>
       <Switch>
-        <Route path="/login" component={Login}/>
-        <Route path="/listarConsultas" component={Administrador}/>
-        <Route path="/minhasConsultas" component={Medico}/>
-        <Redirect to="/login"/>
+        <Route path="/login" component={Login} />
+        <PermissaoAdm path="/listarConsultas" component={Administrador} />
+        <PermissaoMedico path="/minhasConsultasMedico" component={Medico} />
+        <PermissaoPaciente path="/minhasConsultasPaciente" component={Paciente} />
+        <Redirect to="/login" />
       </Switch>
     </div>
   </Router>
-) 
+)
 
 ReactDOM.render(
   routing,
