@@ -25,7 +25,8 @@ export default function Medico() {
             .catch(erro => console.log(erro))
     }
 
-    function alterarDescricao() {
+    function alterarDescricao(event) {
+        event.preventDefault();
         axios.patch('http://localhost:5000/api/Consultas/AlterarDescricao/' + idConsultaAlterada, {
             DescricaoConsulta : novaDescricao
         },{
@@ -39,9 +40,11 @@ export default function Medico() {
             }
         })
         .catch(erro => console.log(erro))
+        consultasMedico();
+        
     }
-
     useEffect(consultasMedico, [])
+
     return (
         <div>
             <Header></Header>

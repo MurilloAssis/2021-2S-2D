@@ -86,3 +86,22 @@ align-items: center;
     width: 20vw;
 }
 
+@media(max-width: 600px){
+    .links_uteis{
+      width: 270px;
+    }
+    .links_uteis a{
+        font-size: 14px;
+    }
+
+    .img_config img{
+        
+        width: 60px;
+        height: 60px;
+    }
+    .logo{
+        width: 75px;
+        height: 75px;
+    }
+  }
+

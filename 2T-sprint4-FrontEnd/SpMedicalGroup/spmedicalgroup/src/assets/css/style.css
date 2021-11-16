@@ -2,7 +2,11 @@ body {
   background-color: #f2f5f7;
   font-family: 'Roboto', sans-serif;
   color: #808080;
+
+  
 }
+
+
 
 .container {
   width: 94%;
@@ -239,6 +243,7 @@ justify-content: center;
   text-align: left;
   border: 1px solid #f6f6f6;
   padding: 8px;
+  white-space: pre-wrap;
 }
 
 #tabela-lista tr:nth-child(even) {
@@ -280,6 +285,7 @@ justify-content: center;
   align-content: center;
   justify-content: center;
   flex-flow: column;
+  margin-bottom: 100px;
 }
 
 #conteudoPrincipal-cadastro .container {
@@ -326,4 +332,6 @@ justify-content: center;
   margin: 10px;
   box-shadow: 1px 1px 1px #ccc;
 }
+
+
 
