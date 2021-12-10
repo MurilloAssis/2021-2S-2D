@@ -127,7 +127,6 @@ C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GRO
 C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\BackEnd\senai_spmedicalgroup_webapi\obj\Debug\net5.0\senai_spmedicalgroup_webapi.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\BackEnd\senai_spmedicalgroup_webapi\obj\Debug\net5.0\senai_spmedicalgroup_webapi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\BackEnd\senai_spmedicalgroup_webapi\obj\Debug\net5.0\staticwebassets\senai_spmedicalgroup_webapi.StaticWebAssets.Manifest.cache
-C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\BackEnd\senai_spmedicalgroup_webapi\obj\Debug\net5.0\staticwebassets\senai_spmedicalgroup_webapi.StaticWebAssets.xml
 C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\BackEnd\senai_spmedicalgroup_webapi\obj\Debug\net5.0\scopedcss\bundle\senai_spmedicalgroup_webapi.styles.css
 C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\BackEnd\senai_spmedicalgroup_webapi\obj\Debug\net5.0\senai_spmedicalgroup_webapi.RazorTargetAssemblyInfo.cache
 C:\Users\Murillo\Desktop\Senai\2021-2S-2D\2T-sprint2-api\Projetos\SP_MEDICAL_GROUP\BackEnd\senai_spmedicalgroup_webapi\obj\Debug\net5.0\senai_spmedicalgroup_webapi.csproj.CopyComplete

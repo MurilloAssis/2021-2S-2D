@@ -74,8 +74,8 @@ export default class Consultas extends Component {
             </View>
             <View style={styles.flatItemContentRow}>
                 <Text style={styles.itemTitle}>Descrição da Consulta:</Text>
-            </View>
                 <Text style={styles.flatItemContent}>{item.descricaoConsulta}</Text>
+            </View>
             
         </View>
     )
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     },
     containerList: {
         alignItems: 'center',
-
+        
     },
     flatItemRow: {
         borderRadius: 20,
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         height: 140,
         padding: 10,
         marginBottom: 90,
-        
+        justifyContent:'center'
 
     },
     flatItemContentRow:{
