@@ -54,7 +54,7 @@ namespace senai_spmedicalgroup_webapi
                 options.AddPolicy("CorsPolicy",
                                 builder =>
                                 {
-                                    builder.WithOrigins(null)
+                                    builder.WithOrigins("*")
                                     .AllowAnyHeader()
                                     .AllowAnyMethod();
                                 });
