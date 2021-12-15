@@ -13,7 +13,7 @@ import Login from './pages/login/login';
 import Administrador from './pages/Administrador/adm';
 import Medico from './pages/medico/medico'
 import Paciente from './pages/paciente/paciente'
-import Mapa from './pages/mapa/mapa';
+import Mapa from './pages/mapa/mapax';
 
 const PermissaoAdm = ({ component: Component }) => (
   <Route
