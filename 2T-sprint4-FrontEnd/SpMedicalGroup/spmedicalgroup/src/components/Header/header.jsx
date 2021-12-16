@@ -3,6 +3,7 @@ import '../../assets/css/consultasAdm.css'
 import '../../assets/css/login.css';
 import logo from "../../assets/img/logo_spmedgroup_v1 1.png"
 import userimg from "../../assets/img/user_img.png"
+import { parseJwt } from '../../services/auth';
 import { Link } from 'react-router-dom';
 
 export default function header (){
@@ -16,7 +17,7 @@ export default function header (){
                             <Link to="/#">Consulta</Link>
                             <Link to="/#">Equipe</Link>
                             <Link to="/#">Contate-nos</Link>
-
+                            {parseJwt.role = '1' ? <Link to="/mapa">Mapa de pacientes</Link> : null}
                         </nav>
                         <div className="img_config">
                             <img className="user_img logo" src={userimg} alt="" />

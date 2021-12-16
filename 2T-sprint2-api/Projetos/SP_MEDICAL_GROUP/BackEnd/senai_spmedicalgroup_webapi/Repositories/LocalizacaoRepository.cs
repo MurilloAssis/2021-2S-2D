@@ -16,7 +16,7 @@ namespace senai_spmedicalgroup_webapi.Repositories
         public LocalizacaoRepository()
         {
             var client = new MongoClient("mongodb://localhost:27017");
-            var database = client.GetDatabase("SPMedicalGroup");
+            var database = client.GetDatabase("SPMedicalGoup");
             _localizacoes = database.GetCollection<Localizacao>("mapas");
         }
         public void Cadastrar(Localizacao novaLocalizacao)

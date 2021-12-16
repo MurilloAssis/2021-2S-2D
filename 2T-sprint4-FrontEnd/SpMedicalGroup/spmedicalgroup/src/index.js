@@ -13,7 +13,8 @@ import Login from './pages/login/login';
 import Administrador from './pages/Administrador/adm';
 import Medico from './pages/medico/medico'
 import Paciente from './pages/paciente/paciente'
-import Mapa from './pages/mapa/mapax';
+import Mapa from './pages/mapa/mapa'
+
 
 const PermissaoAdm = ({ component: Component }) => (
   <Route
@@ -55,9 +56,9 @@ const routing = (
       <Switch>
         <Route path="/login" component={Login} />
         <PermissaoAdm path="/listarConsultas" component={Administrador} />
+        <PermissaoAdm path="/mapa" component={Mapa} />
         <PermissaoMedico path="/minhasConsultasMedico" component={Medico} />
         <PermissaoPaciente path="/minhasConsultasPaciente" component={Paciente} />
-        <Route path="/mapa" component={Mapa}/>
         <Route exact patch="/"><Redirect to="/login"/></Route>
       </Switch>
     </div>
