@@ -16,49 +16,49 @@ import Paciente from './pages/paciente/paciente'
 import Mapa from './pages/mapa/mapa'
 
 
-const PermissaoAdm = ({ component: Component }) => (
-  <Route
-    render={(props) =>
-      usuarioAutenticado() && parseJwt().role === '1' ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to="/login" />
-      )
-    }
-  />
-);
-const PermissaoMedico = ({ component: Component }) => (
-  <Route
-    render={(props) =>
-      usuarioAutenticado() && parseJwt().role === '3' ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to="/login" />
-      )
-    }
-  />
-);
-const PermissaoPaciente = ({ component: Component }) => (
-  <Route
-    render={(props) =>
-      usuarioAutenticado() && parseJwt().role === '2' ? (
-        <Component {...props} />
-      ) : (
-        <Redirect to="/login" />
-      )
-    }
-  />
-);
+// const PermissaoAdm = ({ component: Component }) => (
+//   <Route
+//     render={(props) =>
+//       usuarioAutenticado() && parseJwt().role === '1' ? (
+//         <Component {...props} />
+//       ) : (
+//         <Redirect to="/login" />
+//       )
+//     }
+//   />
+// );
+// const PermissaoMedico = ({ component: Component }) => (
+//   <Route
+//     render={(props) =>
+//       usuarioAutenticado() && parseJwt().role === '3' ? (
+//         <Component {...props} />
+//       ) : (
+//         <Redirect to="/login" />
+//       )
+//     }
+//   />
+// );
+// const PermissaoPaciente = ({ component: Component }) => (
+//   <Route
+//     render={(props) =>
+//       usuarioAutenticado() && parseJwt().role === '2' ? (
+//         <Component {...props} />
+//       ) : (
+//         <Redirect to="/login" />
+//       )
+//     }
+//   />
+// );
 
 const routing = (
   <Router>
     <div>
       <Switch>
-        <Route path="/login" component={Login} />
-        <PermissaoAdm path="/listarConsultas" component={Administrador} />
-        <PermissaoAdm path="/mapa" component={Mapa} />
-        <PermissaoMedico path="/minhasConsultasMedico" component={Medico} />
-        <PermissaoPaciente path="/minhasConsultasPaciente" component={Paciente} />
+        <Route path="/login" component={Administrador} />
+        <Route path="/listarConsultas" component={Administrador} />
+        <Route path="/mapa" component={Mapa} />
+        <Route path="/minhasConsultasMedico" component={Medico} />
+        <Route path="/minhasConsultasPaciente" component={Paciente} />
         <Route exact patch="/"><Redirect to="/login"/></Route>
       </Switch>
     </div>

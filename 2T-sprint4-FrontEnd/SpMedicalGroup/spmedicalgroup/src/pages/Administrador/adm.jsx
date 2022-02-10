@@ -16,7 +16,7 @@ export default function Administrador(){
     const [isLoading, setIsLoading] = useState(false)
 
     function consultasAdm(){
-        axios.get('http://localhost:5000/api/Consultas/', {
+        axios.get('https://62055934161670001741b978.mockapi.io/consulta/', {
             headers : {
                 'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
             }
@@ -185,14 +185,15 @@ export default function Administrador(){
 
                                             <tr key={event.idConsulta}>
                                             <td>{event.descricaoConsulta}</td>
-                                            <td>{event.idPacienteNavigation.idUsuarioNavigation.nomeUsuario}</td>
-                                            <td>{event.idMedicoNavigation.idUsuarioNavigation.nomeUsuario}</td>
+                                            <td>{event.idPacienteNavigation.usuario.nomeUsuario}</td>
+                                            <td>{event.idMedicoNavigation.usuario.nomeUsuario}</td>
                                             <td>
                                                 {Intl.DateTimeFormat("pt-BR", {
                                                     year: 'numeric', month: 'short', day: 'numeric'
                                                 }).format(new Date(event.dataConsulta))}
                                                 </td>
-                                            <td>{event.idMedicoNavigation.idInstituicaoNavigation.nomeFantasia}</td>
+                                            {/* <td>{event.idMedicoNavigation.idInstituicaoNavigation.nomeFantasia}</td> */}
+                                            <td><p>SP Medical Group</p></td>
                                         </tr>
                                         )
                                     })

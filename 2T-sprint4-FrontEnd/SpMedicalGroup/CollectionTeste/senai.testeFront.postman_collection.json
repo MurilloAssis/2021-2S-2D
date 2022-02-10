@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "a286936b-400f-4309-a02d-e9549b890363",
+		"name": "senai.testeFront",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://62055934161670001741b978.mockapi.io/consulta/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idMedico\": 1,\r\n    \"idSituacao\": 1,\r\n    \"idPaciente\": 1,\r\n    \"dataConsulta\": \"1993-05-05T23:12:44.830Z\",\r\n    \"descricaoConsulta\": \"Consulta teste\",\r\n    \"idMedicoNavigation\": {\r\n\r\n        \"idMedico\":86,\r\n        \"idEspecializacao\":2,\r\n        \"idInstituicao\":57,\r\n        \"CRM\":\"CRM 1\",\r\n        \"id\":\"1\",\r\n        \"usuarioId\":\"1\",\r\n        \"usuario\":{\r\n            \"idTipoUsuario\":54,\r\n            \"nomeUsuario\":\"Lelah\",\r\n            \"emailUsuario\":\"Sydnee62@yahoo.com\",\r\n            \"senhaUsuario\":\"rMdsektjGItZcmq\",\r\n            \"id\":\"1\"}\r\n    },\r\n    \"idPacienteNavigation\": {\r\n        \"dataNasc\": \"2056-03-16T06:44:56.339Z\",\r\n        \"CPF\": 50,\r\n        \"RG\": \"RG 1\",\r\n        \"telefone\": \"799-752-8881\",\r\n        \"enderecoPaciente\": \"3745 Walsh Alley\",\r\n        \"id\": \"1\",\r\n        \"usuarioId\": \"1\",\r\n        \"usuario\": {\r\n            \"idTipoUsuario\": 54,\r\n            \"nomeUsuario\": \"Lelah\",\r\n            \"emailUsuario\": \"Sydnee62@yahoo.com\",\r\n            \"senhaUsuario\": \"rMdsektjGItZcmq\",\r\n            \"id\": \"1\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://62055934161670001741b978.mockapi.io/consulta/",
+					"protocol": "https",
+					"host": [
+						"62055934161670001741b978",
+						"mockapi",
+						"io"
+					],
+					"path": [
+						"consulta",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
